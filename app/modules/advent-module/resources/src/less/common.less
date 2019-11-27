@@ -1,0 +1,143 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.row.row-table-sm {
+
+  @media (min-width : @screen-sm-min) {
+    width: calc(~'100% + 30px');
+    display: table;
+    table-layout: fixed;
+
+    div[class*='col-'] {
+      display: table-cell;
+      vertical-align: middle;
+      float: none;
+    }
+
+    .column-sm-1 {
+      width: 8%;
+      display: table-cell;
+    }
+
+    .column-sm-center {
+      width: 28%;
+      padding-left: 15px;
+      padding-right: 15px;
+      display: table-cell;
+
+    }
+  }
+
+}
+
+
+
+.row.row-table {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+
+  div[class*='col-'] {
+    display: table-cell;
+    float: none;
+  }
+  .column-center {
+    vertical-align: middle;
+  }
+}
+
+.row.row-table-md {
+
+  @media (min-width : @screen-md-min) {
+    //width: calc(~'100% + 30px');
+    //width: 100%;
+    display: table;
+    table-layout: fixed;
+
+
+    div[class*='col-'] {
+      display: table-cell;
+      vertical-align: middle;
+      float: none;
+    }
+
+    .column-md-center {
+      padding-left: 15px;
+      padding-right: 15px;
+      display: table-cell;
+    }
+  }
+
+}
+
+
+.row.row-flex {
+  display   : flex;
+  flex-flow : row wrap;
+
+  > [class*='col-'] {
+    display        : flex;
+    flex-direction : column;
+  }
+
+  > [class*='col-xxs-12'] {
+    @media (max-width: @screen-ms-max) {
+      width: 100%;
+    }
+  }
+}
+
+
+
+
+
+
+// Transparent and error appear as red
+.btn-transparent {
+  .button-variant(@btn-transparent-color; @btn-transparent-bg; @btn-transparent-border);
+  &:hover {
+    color: darken(@btn-transparent-color, 15%);
+  }
+}
+
+.btn-nivea-warning {
+  .button-variant-hover(@btn-warning-color; @btn-warning-bg; #3151a0; @btn-warning-bg; #3151a0);
+}
+
+.btn {
+  @media (max-width : @screen-xxs-max) {
+    font-size : 4.0vw;
+  }
+}
+.btn-md {
+  // line-height: ensure even-numbered height of button next to large input
+  .button-size(@padding-base-vertical; 50px; @font-size-large; @line-height-large; @btn-border-radius-large);
+}
+
+&.fadeOut {
+  animation-duration: 3000ms;
+}
+a {
+  outline: none;
+}
+.no-overflow {
+  overflow: hidden;
+  display: block;
+}
+.relative {
+  position: relative;
+}
+
+

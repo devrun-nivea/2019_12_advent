@@ -1,0 +1,40 @@
+{
+	"name": "devrun-nivea/advent-module",
+	"description": "Sandbox Devrun",
+	"keywords": ["cms", "nette", "Devrun", "calendar"],
+	"version": "1.0.0",
+	"minimum-stability": "stable",
+	"homepage": "http://devrun.cz",
+	"license": ["BSD-3-Clause", "GPL-2.0", "GPL-3.0"],
+	"authors": [
+		{
+			"name": "Pavel Paulík",
+			"homepage": "http://pavel.paulik.cz"
+		}
+	],
+	"require": {
+		"php": ">=7.0",
+		"devrun/cms-module": "v0.8.*",
+		"devrun/contest-module": "dev-master",
+		"devrun/article-module": "v0.8.*"
+	},
+	"autoload": {
+		"psr-0": {
+			"AdventModule": ""
+		}
+	},
+	"extra": {
+		"branch-alias": {
+			"dev-master": "0.1-dev"
+		},
+		"devrun": {
+			"hasPackagePages": true,
+			"hasPublishedPages": true,
+			"configuration": {
+				"extensions": {
+					"advent": "AdventModule\\DI\\AdventExtension"
+				}
+			}
+		}
+	}
+}

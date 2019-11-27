@@ -1,0 +1,75 @@
+<div class="modal fade" id="modalLogin" data-backdrop="true" data-keyboard="true" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+	<div class="modal-dialog modal-sm" role="document">
+		<div class="modal-content">
+			{*
+			<div class="modal-header">
+				<h4 class="modal-title" id="modalLabel">Přihlašovací formulář</h4>
+			</div>
+			*}
+			<div class="modal-body">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+
+				<h3 class="modal-title text-center"><strong>{_forms.loginForm.title}</strong></h3>
+
+				{capture $nextHref}{link Homepage:|proxyLink}{/capture}
+				{capture $thisHref}{link Homepage:|proxyLink}{/capture}
+
+				{form loginForm data-ajax-url => $presenter->link('Homepage:'), data-href => $nextHref, data-form-href => $thisHref}
+					<div n:if="$form->hasErrors()" class="alert alert-danger">
+						<p n:foreach="$form->errors as $error">{$error}</p>
+					</div>
+
+					<div id="errors" class="hidden">
+						<p>{_forms.loginForm.text|noescape}</p>
+						<p>{_forms.loginForm.username_or_password_invalid}</p>
+					</div>
+
+					<div class="form-group required">
+						<div class="col-sm-12 control-label text-primary">
+							{label username /}
+						</div>
+
+						<div class="col-sm-12">
+							{input username}
+						</div>
+					</div>
+
+					<div class="form-group required">
+						<div class="col-sm-12 control-label text-primary">
+							{label password /}
+						</div>
+
+						<div class="col-sm-12">
+							{input password}
+						</div>
+					</div>
+
+					<div class="form-group">
+						<div class="col-sm-12 control-label text-info">
+							<a target="_blank" rel="nofollow" href="{_forms.loginForm.forgottenLink}">{_forms.loginForm.forgottenPassword}</a>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<div class="col-sm-12 control-label text-info">
+							{capture $returnUrl}{link this|proxyLink}{/capture}
+							{_forms.loginForm.registrationQuestion} <a id="proxy-registration" href="{_forms.loginForm.registrationLink, [returnUrl=>$returnUrl]}">{_forms.loginForm.registrationText}</a>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<div class="col-sm-12 text-center">
+							{input send}
+						</div>
+					</div>
+
+					{*
+					<div class="form-group text-muted col-sm-12">
+						{_forms.requestItem}
+					</div>
+					*}
+				{/form}
+			</div>
+		</div>
+	</div>
+</div>

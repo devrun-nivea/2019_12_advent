@@ -1,0 +1,26 @@
+translation:
+	dirs: ['%modules.advent.path%/resources/translations']
+
+services:
+
+	advent.presenters.homepage:
+		class: AdventModule\Presenters\HomepagePresenter
+		tags: [public.presenter]
+		setup:
+			- setDebug(%debug%)
+
+	advent.presenters.day:
+		class: AdventModule\Presenters\DayPresenter
+		tags: [public.presenter]
+		setup:
+			- setDebug(%debug%)
+
+	advent.presenters.form:
+		class: AdventModule\Presenters\FormPresenter
+		tags: [public.presenter]
+		setup:
+			- setDebug(%debug%)
+
+	advent.presenters.thankyou:
+		class: AdventModule\Presenters\ThankYouPresenter
+		tags: [public.presenter]

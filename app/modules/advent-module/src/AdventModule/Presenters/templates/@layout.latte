@@ -1,0 +1,128 @@
+{**
+ * @param string   $basePath web base path
+ * @param array    $flashes  flash messages
+ *}
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta content="cs" http-equiv="Content-language">
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+	<meta content="Pixman s.r.o." name="author">
+	<link rel="shortcut icon" href="{$basePath}/favicon.png">
+
+	<title n:inner-block="title">{ifset title}{include title|striptags}{else}{_pexeso.title}{/ifset}</title>
+{*	<title>{ifset title}{include title|striptags}{/ifset}{_site.title}</title>*}
+
+{*	{var $production = true}*}
+
+
+	{*================== BEGIN BASE CSS STYLE ==================*}
+	{*{control jsEnvironmentControl}*}
+	<script type="application/javascript">var dataLayer = dataLayer || []; // Google Tag Manager</script>
+	{if $production}
+		<link data-pf-placeholder="head" rel="stylesheet" type="text/css" media="screen" href="{$basePath}/resources/adventModule/css/main-advent.min.css?rel=1574855177275">
+		{*{include "#gtm-head.latte"}*}
+	{else}
+		{*<!-- build:css {$basePath}/resources/adventModule/css/main-advent.min.css -->*}
+		<link rel="stylesheet" type="text/css" media="screen" href="{$basePath}/resources/adventModule/assets/animate.css/animate.min.css">
+		<link rel="stylesheet" type="text/css" media="screen" href="{$basePath}/resources/adventModule/assets/select2/css/select2.css">
+		<link data-pf-placeholder="head" rel="stylesheet" type="text/css" media="screen" href="{$basePath}/resources/adventModule/css/advent.css">
+		{*<!-- endbuild -->*}
+	{/if}
+
+	{*================== BEGIN BASE JS ==================*}
+{*	<script type="application/javascript" data-pf-placeholder="scripts" src="{$basePath}/assets/jquery/dist/jquery.min.js"></script>*}
+	{*================== END BASE JS ==================*}
+	{block head}{/block}
+{*	{include "#gtm-head.latte"}*}
+</head>
+
+<body>
+	<div id="application" data-pf-placeholder="content" data-pf-sortorder="1" data-pf-options="innerhtml">
+		{include "#gtm-body.latte"}
+
+		<div id="{_advent.anchor}" class="{$pageClass}" role="main" data-pf-proxy-url="" data-pf-proxy-base-url="{$proxyBaseUrl}" data-app-base-url="{link Homepage:}" data-logged-in="{$user->isLoggedIn() ? 'true' : 'false'}">
+			<canvas n:if="!Devrun\CmsModule\Utils\Common::isAdminRequest()" id="canvas"></canvas>
+			{include 'loginModal.latte'}
+			<main n:snippet="content" class="content img-preload">
+{*				<div n:ifset="$redirect" href="{link $redirect|proxyLink}" data-pre-loading="false" data-ajax-url="{link $redirect}" class="redirect"></div>*}
+				{include content}
+			</main>
+			<div id="preloaded-images">
+				<img src="{$basePath}/resources/adventModule/images/kolo.png" alt="">
+			</div>
+		</div>
+	</div>
+
+	{block scripts}
+		{*================== BEGIN BASE JS ==================*}
+		<script n:if="!Devrun\CmsModule\Utils\Common::isAdminRequest()" type="application/javascript" data-pf-placeholder="scripts" src="{$basePath}/resources/adventModule/assets/jquery/jquery.min.js"></script>
+		<script n:if="!Devrun\CmsModule\Utils\Common::isAdminRequest()" type="text/javascript" data-pf-placeholder="scripts" src="{$basePath}/resources/adventModule/js/json2.min.js"></script>
+		<script n:if="!Devrun\CmsModule\Utils\Common::isAdminRequest()" type="text/javascript" data-pf-placeholder="scripts" src="{$basePath}/resources/adventModule/js/ProCampaignApiConsumer.js"></script>
+{*		<script n:if="!Devrun\CmsModule\Utils\Common::isAdminRequest()" type="text/javascript" data-pf-placeholder="scripts" src="https://consumer.procampaignapi.com/Scripts/json2.min.js"></script>*}
+{*		<script n:if="!Devrun\CmsModule\Utils\Common::isAdminRequest()" type="text/javascript" data-pf-placeholder="scripts" src="https://consumer.procampaignapi.com/Scripts/ProCampaignApiConsumer.js"></script>*}
+
+		{if $production}
+			{*<script type="application/javascript" src="{$basePath}/assets/bootstrap/js/bootstrap.js"></script>*}
+			<script type="application/javascript" data-pf-placeholder="scripts" src="{$proxyUrl}{$basePath}/resources/adventModule/js/advent.min.js?rel=1574855177275"></script>
+			<script type="application/javascript" src="{$basePath}/resources/adventModule/assets/nette-progress/nette.nprogress.js"></script>
+			<script type="application/javascript" src="{$basePath}/resources/adventModule/assets/nette-progress/nprogress.js"></script>
+		{else}
+			{*<!-- build:js {$basePath}/resources/adventModule/js/advent.min.js -->*}
+			<script type="application/javascript" src="{$basePath}/resources/adventModule/assets/bootstrap/js/bootstrap.min.js"></script>
+			<script type="application/javascript" src="{$basePath}/resources/adventModule/assets/nette.ajax.js/nette.ajax.js"></script>
+			<script type="application/javascript" src="{$basePath}/resources/adventModule/assets/nette.ajax.js/extensions/diagnostics.dumps.ajax.js"></script>
+			<script type="application/javascript" src="{$basePath}/resources/adventModule/assets/history.ajax.js/history.ajax.js"></script>
+			<script data-pf-placeholder="scripts" type="application/javascript" src="{$basePath}/resources/adventModule/js/jquery.smooth-scroll-nivea.js"></script>
+			<script type="application/javascript" src="{$basePath}/resources/adventModule/js/live-form-validation-nivea.js"></script>
+			<script type="application/javascript" src="{$basePath}/resources/adventModule/js/select2-nivea.js"></script>
+			<script data-pf-placeholder="scripts" type="application/javascript" src="{$basePath}/resources/adventModule/js/modernizr.js"></script>
+			<script type="application/javascript" src="{$basePath}/resources/adventModule/js/page.js"></script>
+			<script type="application/javascript" src="{$basePath}/resources/adventModule/js/advent.js"></script>
+			<script type="application/javascript" src="{$basePath}/resources/adventModule/js/form.js"></script>
+			<script type="application/javascript" src="{$basePath}/resources/adventModule/js/procampaign.js"></script>
+			<script type="application/javascript" src="{$basePath}/resources/adventModule/js/snow.js"></script>
+			{*<!-- endbuild -->*}
+			<script type="application/javascript" src="{$basePath}/resources/adventModule/assets/nette-progress/nette.nprogress.js"></script>
+			<script type="application/javascript" src="{$basePath}/resources/adventModule/assets/nette-progress/nprogress.js"></script>
+		{/if}
+
+		{*================== END BASE JS ==================*}
+	{/block}
+	{block extraScripts}{/block}
+
+	<script data-pf-placeholder="scripts">
+		(function($, undefined) {
+
+			ProCampaignForm.init(
+				{
+					'package': {$package->name},
+					'source': {_advent.transaction.$package->name.source},
+					'transactionName': {_advent.transaction.$package->name.name},
+					'identLong': {_advent.transaction.$package->name.identLong},
+					{*'logUrl': {link log!}*}
+				}
+			);
+
+		    $(function (event) {
+				{ifset $scroll}
+				{if $scroll}
+					$.smoothScroll({ scrollTarget: '#app' });
+				{/if}
+				{/ifset}
+
+				{ifset $redirect}
+                Page.switchPage('.redirect', event);
+                console.log("redirex");
+				{/ifset}
+
+			});
+		})(jQuery);
+	</script>
+
+</body>
+</html>

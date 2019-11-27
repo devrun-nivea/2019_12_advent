@@ -1,0 +1,103 @@
+// Transparent and error appear as red
+.btn-transparent {
+  .button-variant(@btn-transparent-color; @btn-transparent-bg; @btn-transparent-border);
+  &:hover {
+    color: darken(@btn-transparent-color, 15%);
+  }
+}
+.btn-white {
+  .button-variant-hover(@brand-info; #fff; @brand-info; @brand-info; @brand-info);
+  &:focus,
+  &.focus {
+    color: #fff;
+  }
+  &:hover {
+    color: #fff;
+  }
+
+  &:active,
+  &.active,
+  .open > .dropdown-toggle& {
+    color: #fff;
+    background-color: @brand-info;
+    border-color: @brand-info;
+
+    &:hover,
+    &:focus,
+    &.focus {
+      color: #fff;
+      background-color: darken(@brand-info, 17%);
+      border-color: darken(@brand-info, 25%);
+    }
+  }
+
+}
+
+
+.btn-img {
+  //.button-variant(#000; #fff; @brand-info);
+  .button-variant-hover(#000; #fff; #fff; @brand-info; @brand-info);
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+
+  &:active,
+  &.active,
+  .open > .dropdown-toggle& {
+    background-color: #fff;
+    border-color: @brand-info;
+
+    &:hover,
+    &:focus,
+    &.focus {
+      background-color: #fff;
+      border-color: @brand-info;
+      box-shadow: none;
+    }
+  }
+
+  &.btn-lg {
+    padding-top: 0;
+    padding-bottom: 0;
+    @media (max-width : @screen-ms-max) {
+      height: 72px;
+    }
+  }
+}
+
+.btn-nivea-warning {
+  .button-variant-hover(@btn-warning-color; @btn-warning-bg; #3151a0; @btn-warning-bg; #3151a0);
+}
+
+.btn {
+  text-decoration: none;
+
+  @media (max-width : @screen-xxs-max) {
+    font-size : 4.0vw;
+  }
+}
+.btn-md {
+  // line-height: ensure even-numbered height of button next to large input
+  .button-size(9px; 50px; @font-size-medium; @line-height-large; @btn-border-radius-large);
+
+  &.btn-img {
+    height: 39px;
+    line-height: 39px;
+    padding-top: 0;
+    padding-bottom: 0;
+
+    img {
+      max-height: 37px;
+      display: inline-block;
+      vertical-align: baseline;
+    }
+  }
+}
+
+button.close {
+  border: none;
+  float: right;
+  border-radius: 5px;
+  transition: all 300ms;
+}

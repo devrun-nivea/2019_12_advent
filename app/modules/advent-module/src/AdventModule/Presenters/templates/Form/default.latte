@@ -1,0 +1,311 @@
+{if !$presenter->isNiveaAjax()}
+	{block title}{$title}{/block}
+{/if}
+
+<section n:block="content" id="calendar" class="_active" data-ajax-url="{link ThankYou:}" data-href="{link ThankYou:|proxyLink}" data-pre-loading="true" data-page-sound="{$basePath}/resources/adventModule/mp3/page-flip-15.mp3">
+
+	<div class="content img-preload">
+
+		{* formular *}
+		<div id="form" class="container">
+			<div class="frame-play">
+
+				{*
+                <div class="part-title">
+                    <div class="box">
+                        <p class="description text-primary">{_site.soutez}</p>
+                        <h2 class="text-primary">{_site.thanks.dekujeme|noescape}</h2>
+                        <div class="bottom-box">
+                            <p class="tip text-primary">{_site.thanks.thx_text1|noescape}</p>
+                        </div>
+                    </div>
+                    <div class="bottom-title-box">
+                    </div>
+                </div>
+                *}
+
+				<div class="part-content">
+
+					{*{control registrationForm}*}
+
+					{*
+                    <div n:if="$debug" class="debug">
+                        <a n:for="$i=1;$i<=24;$i++" n:href="setDay! day=>$i" class="_ajax btn btn-xs btn-default inline-block">{$i}</a>
+                    </div>
+                    *}
+
+					{capture $nextHref}{link ThankYou:|proxyLink}{/capture}
+					{capture $thisHref}{link Form:|proxyLink}{/capture}
+					{capture $ajaxUrl}{link ThankYou:}{/capture}
+
+					{form registrationForm, data-ajax-url => $ajaxUrl, data-href => $nextHref, data-form-href => $thisHref, data-cache => 'false', action=> ''}
+						<div class="row decorate-form">
+							<div id="questionSelect" class="col-sm-7">
+
+								<div class="row ">
+									<div class="col-sm-offset-1 col-md-8 text-center">
+										<img n:image="'resources/adventModule/images/text/odpovezte.png', '280x82', shrink_only" alt="{_advent.form_page.alt_odpovezte}" class="hidden-ms hidden-xs img-answer img-responsive inline-block">
+										<img n:image="'resources/adventModule/images/text/odpovezte.png'" alt="{_advent.form_page.alt_odpovezte}" class="img-answer visible-xs-inline-block visible-ms-inline-block img-responsive">
+									</div>
+								</div>
+
+								{input _q}
+
+								<div class="_form-group required">
+									<div class="checkbox">
+
+										<div class="row">
+											<div class="col-sm-offset-1 col-md-8 col-lg-8 text-center">
+{*												<article class="question">{$question->text}</article>*}
+												<article class="question" data-anim="slit-out-horizontal" data-anim-sound="{$basePath}/resources/adventModule/mp3/page-flip-12.mp3">{_quiz.quiz$today|noescape}</article>
+											</div>
+										</div>
+										<div id="questions" class="row d-flex flex-wrap" data-anim="swirl-out-tl-bck" data-anim-sound="{$basePath}/resources/adventModule/mp3/page-flip-12.mp3">
+											<div class="col-md-5 col-xs-12 order-xs-0">
+												{foreach $form["answer$today"]->items as $key => $label}
+													<div n:class="$iterator->last ? 'm-b-0 quiz-check' : 'quiz-check'">
+														<input n:name="answer$today:$key">
+														<label n:name="answer$today:$key"><span>{_quiz.$label|noescape}</span></label>
+													</div>
+												{/foreach}
+											</div>
+											<div class="d-flex align-items-center justify-content-center order-xs-2 col-md-5 col-ms-8 col-xs-12 col-ms-offset-2 col-md-offset-0 p-0">
+												<div class="winner-box">
+													<img n:image="'resources/adventModule/images/days/day_'.$today .'_win.png'" alt="win" class="img-responsive inline-block">
+												</div>
+											</div>
+											<div class="col-xs-12 col-ms-2 p-0 text-center order-xs-1">
+												<span class="inline-block today-win-txt">
+													<img n:image="'resources/adventModule/images/text/dnesni_vyhra.png'" alt="{_advent.form_page.vyhra}" class="img-responsive hidden-xs">
+													<img n:image="'resources/adventModule/images/text/dnesni_vyhra-xs.png'" alt="{_advent.form_page.vyhra}" class="img-responsive visible-xs">
+												</span>
+											</div>
+										</div>
+
+
+
+{*
+										<div class="row visible-md visible-lg">
+											<div class="col-sm-offset-1 col-sm-8 col-md-8 text-center">
+											<span class="inline-block today-win-txt">
+												<img n:image="'resources/adventModule/images/text/dnesni_vyhra.png'" alt="{_advent.form_page.vyhra}" class="img-responsive">
+											</span>
+											</div>
+										</div>
+*}
+
+									</div>
+
+									<div class="row d-flex flex-wrap" data-anim="slide-out-elliptic-right-fwd">
+										<div class="col-md-4 col-sm-5 col-ms-4 col-xs-12 text-center order-xs-1">
+											<span class="inline-block today-win_merch-txt">
+												<img n:image="'resources/adventModule/images/text/darek_pro_cleny.png'" alt="{_advent.form_page.vyhra}" class="img-responsive hidden-ms hidden-xs">
+												<img n:image="'resources/adventModule/images/text/darek_pro_cleny-ms.png'" alt="{_advent.form_page.vyhra}" class="img-responsive visible-ms">
+												<img n:image="'resources/adventModule/images/text/darek_pro_cleny-xs.png'" alt="{_advent.form_page.vyhra}" class="img-responsive visible-xs">
+											</span>
+										</div>
+										<div class="col-md-8 col-sm-7 col-ms-8 col-xs-12 text-center order-xs-0">
+											<div class="winner-merch-box">
+												<img n:image="'resources/adventModule/images/days/day_'.$today .'_win_merch.png'" alt="win-merch" class="img-responsive inline-block">
+											</div>
+										</div>
+									</div>
+
+									<p id="register-in" class="text-right text-danger text-registration">{_advent.form_page.register|noescape}</p>
+								</div>
+
+								<div class="part-footer hidden-ms hidden-xs">
+									<div class="bottom-box">
+										<div class="row">
+											<div class="_col-footer col-md-12">
+												<p n:editable="advent.soutez_probiha" class="text-info text-description description">{_advent.soutez_probiha|noescape}</p>
+											</div>
+										</div>
+									</div>
+								</div>
+
+							</div>
+							<div class="col-sm-5">
+
+								<div id="logged-out" class="form-group hidden">
+									<div class="col-sm-12">
+										<p id="login-label" n:article="advent.form.login.text header text" class="text-info">{article |noescape}</p>
+										<div class="text-right">
+											<button id="login" type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modalLogin">{_advent.form_page.loggedIn}</button>
+										</div>
+									</div>
+								</div>
+								<div id="logged-in" class="form-group hidden">
+									<div class="col-sm-12">
+										<p id="login-label" n:article="advent.form.logout.text header text" class="text-info">{article |noescape}</p>
+										<div class="text-right">
+											<button id="logout" type="button" class="btn btn-primary btn-sm">{_advent.form_page.loggedOut}</button>
+										</div>
+									</div>
+								</div>
+
+								<div id="identity" data-anim="slide-out-elliptic-right-fwd" data-anim-sound="{$basePath}/resources/adventModule/mp3/page-flip-12.mp3">
+									<div class="alert alert-danger" n:if="$form->hasErrors()">
+										<p n:foreach="$form->errors as $error">{$error}</p>
+									</div>
+
+									{formContainer createdBy}
+										<div class="form-group required">
+											<div class="col-sm-12">
+												{label gender /}
+												<div class="clearfix p-t-7 checkbox">
+													{foreach $form['createdBy']['gender']->items as $key => $label}
+														<div class="col-xs-12 col-ms-6{first} m-b-35-xs{/first} p-0">
+															<input n:name="gender:$key">
+															<label n:name="gender:$key">{_forms.registrationForm.$label}</label>
+														</div>
+													{/foreach}
+												</div>
+											</div>
+										</div>
+
+										<div class="form-group required">
+											{if $locale == 'hu'}
+												<div class="col-sm-12">
+													{label firstName /}
+													{input firstName}
+												</div>
+											{else}
+												<div class="col-sm-12">
+													{label firstName /}
+													{input firstName}
+												</div>
+											{/if}
+										</div>
+										<div class="form-group required">
+											{if $locale == 'hu'}
+												<div class="col-sm-12">
+													{label lastName /}
+													{input lastName}
+												</div>
+											{else}
+												<div class="col-sm-12">
+													{label lastName /}
+													{input lastName}
+												</div>
+											{/if}
+										</div>
+
+										<div class="form-group required">
+											<div class="col-sm-12">
+												{label email /}
+												{input email}
+											</div>
+										</div>
+
+										{if $locale == hu}
+											<div class="form-group required">
+												<div class="col-sm-12">
+													{label street /}
+													{input street}
+												</div>
+											</div>
+
+											<div class="form-group required">
+												<div class="col-sm-12">
+													{label strno /}
+													{input strno}
+												</div>
+											</div>
+
+											<div class="form-group required">
+												<div class="col-sm-12">
+													{label city /}
+													{input city}
+												</div>
+											</div>
+
+											<div class="form-group required">
+												<div class="col-sm-12">
+													{label zip /}
+													{input zip}
+												</div>
+											</div>
+
+										{/if}
+									{/formContainer}
+								</div>
+
+								<div id="accepts" data-anim="slide-out-elliptic-right-fwd" data-anim-sound="{$basePath}/resources/adventModule/mp3/page-flip-12.mp3">
+									{*
+									<div n:if="$locale != hu" class="form-group required checkbox-table p-t-7">
+										<div class="col-sm-12 m-b-15">
+											<input n:name="older">
+											<label n:name="older" class="control-label">{_site.registrationForm.potvrďte_souhlas_staršího_věku|noescape}</label>
+										</div>
+									</div>
+									*}
+
+									<div id="privacy" class="form-group required checkbox-table m-t-30 p-t-7">
+										<div class="col-sm-12">
+											<input n:name="privacy">
+											<label n:name="privacy">
+												<p id="privacy-label" n:article="advent.form.privacy header text" class="checkbox-col">{article |noescape}</p>
+											</label>
+										</div>
+
+									</div>
+									<div id="newsletter" class="form-group checkbox-table p-t-7">
+										<div class="col-sm-12 m-b-15">
+											<input n:name="newsletter">
+											<label n:name="newsletter">
+												<p id="newsletter-label" n:article="advent.form.newsletter header simple" class="checkbox-col">{article |noescape}</p>
+												{*<span class="checkbox-col">{_pexeso.registrationForm.posílat_newsletter|noescape}</span>*}
+											</label>
+										</div>
+									</div>
+									<div n:ifset="$form['privacy2']" id="privacy2" class="form-group required checkbox-table p-t-7">
+										<div class="col-sm-12 m-b-15">
+											<input n:name="privacy2">
+											<label n:name="privacy2">
+												<p id="privacy-label" n:article="advent.form.privacy2 header text" class="checkbox-col">{article |noescape}</p>
+											</label>
+										</div>
+									</div>
+								</div>
+
+								<div id="send" class="form-group" data-anim="slide-out-elliptic-right-fwd" data-anim-sound="{$basePath}/resources/adventModule/mp3/page-flip-12.mp3">
+									<div class="col-sm-12 text-right">
+										{*{input send, onclick=>"dataLayer.push({ 'ga_event': 'click', 'pageview': '/advent-calendar-form', 'eventCategory': 'button', 'eventAction': 'send' });"}*}
+										{input send}
+									</div>
+								</div>
+
+
+								<div class="part-footer hidden-ms hidden-xs">
+									<div class="bottom-box">
+										<div class="row">
+											<div class="_col-footer col-md-12">
+												<p n:editable="advent.pravidla_najdete" class="text-info text-description about arrow-next">{_advent.pravidla_najdete|noescape}</p>
+											</div>
+										</div>
+									</div>
+								</div>
+
+							</div>
+
+						</div>
+					{/form}
+				</div>
+
+
+				<div class="part-footer visible-ms visible-xs">
+					<div class="bottom-box">
+						<div class="row">
+							<div class="_col-footer col-md-12">
+								<p n:editable="advent.soutez_probiha" class="text-info text-description description">{_advent.soutez_probiha|noescape}</p>
+								<p n:editable="advent.pravidla_najdete" class="text-info text-description about arrow-next">{_advent.pravidla_najdete|noescape}</p>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+</section>

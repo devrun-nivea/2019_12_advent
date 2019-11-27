@@ -1,0 +1,248 @@
+form.form-horizontal {
+
+  .control-label {
+    text-align: left;
+  }
+
+  .form-control {
+    height: 37px;
+    border-radius: 0;
+    border-color: #cdcdcd;
+    .font-size(13px);
+    color: #333;
+    box-shadow: none;
+
+    & when (@mobile-form-control = true) {
+      @media (max-width : @screen-ms-max) {
+        .height(70px);
+        .font-size(24px);
+      }
+    }
+
+    & when (@mobile-form-control = false) {
+      @media (min-width : @screen-ms-min) and (max-width : @screen-ms-max) {
+        .font-size(21px);
+      }
+      @media (max-width : @screen-xs-max) {
+        font-size: unit(21 / (@screen-xs-max / 100 ), vw);
+      }
+    }
+
+  }
+
+
+  label {
+    font-weight: normal;
+
+    //@media (max-width : @screen-xs-max) {
+    //  font-size: unit(18 / (@screen-xs-max / 100 ), vw);
+    //  line-height: 1.525;
+    //}
+
+    @media (max-width : @screen-ms-max) {
+      //.font-size(24px);
+    }
+  }
+
+  a {
+    text-decoration: underline;
+  }
+
+  .help-block {
+    @media (min-width : @screen-ms-min) and (max-width : @screen-ms-max) {
+      .font-size(18px);
+    }
+    & when (@mobile-form-control = true) {
+    }
+  }
+
+
+  input[type="submit"], button[type="submit"] {
+    //padding: 10px 82px;
+
+    @media (max-width : @screen-sm-max) {
+      width : 100%;
+    }
+  }
+
+
+
+  .birth-select {
+    label.birthday {
+      display: block;
+      .padding-left(@grid-gutter-width / 2);
+      .padding-right(@grid-gutter-width / 2);
+    }
+
+    [class*='col-'] label {
+      @media (min-width : @screen-ms-min) {
+        display: none;
+      }
+    }
+  }
+
+
+
+  .checkbox-table {
+    transition: background-color 800ms;
+
+    label {
+      display: table;
+    }
+
+    input[type="checkbox"], input[type="radio"] {
+      display: table-cell;
+      vertical-align: text-top;
+      margin: 0 1em 0 0;
+      .width(16px);
+    }
+
+    .checkbox-col {
+      display: table-cell;
+      vertical-align: text-top;
+
+    }
+
+    .help-block {
+      .margin-left(@checkbox-size + 20px);
+
+      & when (@mobile-form-control = true) {
+        @media (max-width : @screen-ms-max) {
+          .margin-left(@checkbox-size-xs + 50px);
+        }
+      }
+    }
+
+    &.has-error {
+      background-color: rgba(200, 100, 100, 0.05);
+      border-radius: 5px;
+
+      .help-block {
+        background-color: rgba(250, 50, 50, 0.35);
+      }
+    }
+
+
+  }
+
+  .select2-container .select2-selection--single {
+    height: 37px;
+  }
+
+
+  .select2-container--default .select2-selection--single {
+    border-radius: 0;
+    border-color: #cdcdcd;
+  }
+
+  .select2-container--default .select2-selection--single .select2-selection__arrow {
+    height: 37px;
+  }
+
+  .select2-container--default .select2-selection--single .select2-selection__rendered {
+    height: 37px;
+    line-height: 37px;
+  }
+
+
+}
+
+
+.decorate-form {
+
+  @media (min-width : @screen-lg-min) {
+    //.padding-left(60px);
+  }
+
+  .checkbox, .radio {
+    padding-left: 0;
+  }
+
+  #identity {
+    @media (min-width : @screen-ms-min) and (max-width : @screen-ms-max) {
+      label {
+        .font-size(24px);
+      }
+    }
+    @media (max-width : @screen-xs-max) {
+      label {
+        font-size: unit(24 / (@screen-xs-max / 100 ), vw);
+      }
+    }
+  }
+
+  #accepts {
+    @media (min-width : @screen-ms-min) and (max-width : @screen-ms-max) {
+      label {
+        .font-size(21px);
+      }
+    }
+    @media (max-width : @screen-xs-max) {
+      label {
+        font-size: unit(21 / (@screen-xs-max / 100 ), vw);
+      }
+    }
+  }
+
+  h2 {
+    @media (max-width : @screen-xs-max) {
+      font-size : 4vw;
+    }
+  }
+
+  .required:not(.checkbox-table) {
+    label {
+      &:after {
+        content : " *";
+      }
+    }
+
+
+    .birth-select {
+      label {
+        &:after {
+          content : none;
+        }
+      }
+      label.birthday {
+        &:after {
+          content : " *";
+        }
+      }
+    }
+
+
+    .checkbox {
+      label {
+        &:after {
+          content : "";
+        }
+      }
+    }
+
+  }
+
+  .required.checkbox-table {
+    label span {
+      &:after {
+        content : " *";
+      }
+
+    }
+  }
+
+  .checkbox-table {
+    &.form-group {
+      margin-bottom: 5px;
+    }
+  }
+
+
+  label.required {
+    &:after {
+      content : "*";
+    }
+  }
+
+
+}

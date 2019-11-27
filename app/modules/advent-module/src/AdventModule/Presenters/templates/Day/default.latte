@@ -1,0 +1,113 @@
+{if !$presenter->isNiveaAjax()}
+	{block title}{$title}{/block}
+{/if}
+
+<section n:block="content" id="calendar" class="active" data-ajax-url="{link ThankYou:}" data-href="{link ThankYou:|proxyLink}" data-pre-loading="true" data-page-sound="{$basePath}/resources/adventModule/mp3//page-flip-15.mp3">
+	<div class="content {if $locale != sk}img-preload{/if}">
+
+		<div id="calendar-menu-mobile" class="_animated _swing">
+			<div class="container">
+
+				<div class="row">
+					<div class="col-ms-offset-1 col-ms-10">
+						<article class="text-center">
+							<p n:article="advent.day.text1 header simple">{article |noescape}</p>
+
+							<span class="click-here animated zoomInLeft">
+								<img n:image="'resources/adventModule/images/text/kliknete_zde.png'" alt="klikněte zde" class="img-responsive">
+							</span>
+						</article>
+					</div>
+				</div>
+
+				<section class="today">
+					<span class="number">{$today}</span>
+					<a n:if="$isActive" href="{link Form:|proxyLink}" data-ajax-url="{link Form:}" class="ajax-page" id="today-select" onclick="dataLayer.push({ 'ga_event': 'click', 'pageview': '/advent-calendar-days', 'eventCategory': 'button', 'eventAction': {$today} });">
+						<span class="day">
+							<img n:image="'resources/adventModule/images/days/mobile/day_'.$today2Digit .'-xs.png'" alt="day-{$today}" class="img-responsive symbol">
+						</span>
+					</a>
+					<span n:if="!$isActive" class="day">
+						<img n:image="'resources/adventModule/images/days/mobile/day_'.$today2Digit .'-xs.png'" alt="day-{$today}" class="img-responsive symbol">
+{*						<img src="{$proxyUrl}{$basePath}/images/day_{$today|padLeft:"2,0"}-xs.png?v=1" class="img-responsive symbol">*}
+					</span>
+				</section>
+
+				<div class="part-footer">
+					<div class="bottom-box">
+						<div class="row">
+							<div class="_col-footer col-sm-12">
+								{capture $link}<a target="_blank" class="text-primary" rel="nofollow" href="{_advent.registrationForm.rules_url}">{_advent.zde}</a>{/capture}
+								<p class="text-info text-description description">{_advent.soutez_probiha|noescape}</p>
+								<p class="text-info text-description about arrow-next">{_advent.pravidla_najdete, ['link' => $link]|noescape}</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		{* calendar circle *}
+		<div id="calendar-menu" class="animated bounceInUp" data-inactive-sound="{$basePath}/resources/adventModule/mp3/clock-chimes.mp3">
+			<div class="container">
+
+				<img class="calendar-decorate" src="{$proxyUrl}{$basePath}/resources/adventModule/images/kolo.png">
+
+				<div class="row d-flex flex-row flex-wrap calendar-content">
+
+					<div n:foreach="$days as $index => $day" data-day-index="{$index}" class="col-md-2 day-{$index} col-sm-2 col-xs-4 grid{if $today == $index && $isActive} active{/if}"{if $today == $index} onclick="dataLayer.push({ 'ga_event': 'click', 'pageview': '/advent-calendar-days', 'eventCategory': 'button', 'eventAction': {$today} });"{/if}>
+
+						{if $today == $index}
+							<span class="number">{$index}</span>
+							<a class="day ajax-page" rel="nofollow" href="{link Form:|proxyLink}" data-ajax-url="{link Form:}" data-pre-loading="true">
+								<span class="day">
+{*									<img src="{$basePath}/resources/adventModule/images/days/day_14.png">*}
+									<img n:image="'resources/adventModule/images/days/day_'.$day.'.png', '200x200', shrink_only" alt="day-{$day}" class="img-responsive symbol">
+								</span>
+							</a>
+
+							{*
+							<span class="number">{$index}</span>
+							<span class="day">
+								<img src="{$proxyUrl}{$basePath}/images/day_{$day}.png?v=1" class="img-responsive symbol" data-sound="{$basePath}/resources/adventModule/mp3/page-flip-13.mp3" alt="{_advent.form_page.day.$index}">
+							</span>
+							*}
+						{else}
+							{if $presenter->isDebug()}
+								<span class="number">{$index}</span>
+								<a class="day" rel="nofollow" href="{link Form: day=>intval($day)|proxyLink}">
+									<img n:image="'resources/adventModule/images/days/day_'.$day.'.png', '200x200', shrink_only" class="img-responsive symbol" alt="{_advent.form_page.day.$index}">
+								</a>
+							{else}
+								<span class="number">{$index}</span>
+								<span class="day" rel="nofollow" href="{link Form:|proxyLink}">
+									<img n:image="'resources/adventModule/images/days/day_'.$day.'.png', '200x200', shrink_only" class="img-responsive symbol" alt="{_advent.form_page.day.$index}">
+								</span>
+								{*
+								<span class="day">
+									<img src="{$proxyUrl}{$basePath}/images/day_{$day}.png?v=1" class="img-responsive symbol" alt="{_advent.form_page.day.$index}">
+								</span>
+								*}
+							{/if}
+						{/if}
+					</div>
+				</div>
+
+				<div class="part-footer">
+					<div class="bottom-box">
+						<div class="row">
+							<div class="_col-footer col-md-offset-2 col-md-8 col-sm-12 p-0">
+								{capture $link}<a target="_blank" class="text-primary" rel="nofollow" href="{_advent.registrationForm.rules_url}">{_advent.zde}</a>{/capture}
+								<p class="text-info text-description description">{_advent.soutez_probiha|noescape}</p>
+								<p class="text-info text-description about arrow-next">{_advent.pravidla_najdete, ['link' => $link]|noescape}</p>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+		{* calendar circle *}
+
+	</div>
+</section>

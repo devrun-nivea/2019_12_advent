@@ -1,0 +1,489 @@
+#calendar {
+  .padding-bottom(100px);
+
+  @media (min-width : @screen-lg-min) {
+    &.active {
+      .min-height(1600px);
+      .padding-bottom(300px);
+    }
+  }
+  @media (min-width : @screen-sm-min) {
+    background: #E7F5FD url("../images/calendar_bg-no-snow.jpg") no-repeat center top;
+  }
+
+  #form {
+    .padding-top(44px);
+    position: relative;
+    z-index: 10;
+  }
+
+  @media (max-width: @screen-md-max) {
+    &.active {
+      #form {
+        display: none;
+      }
+    }
+  }
+
+
+  .content {
+    position: relative;
+    //background: url("../images/kolo.png") no-repeat center center;
+  }
+
+
+
+  &.active {
+    #form {
+      visibility: hidden;
+      @media (min-width : @screen-sm-min) {
+        .min-height(1000px);
+      }
+      @media (max-width : @screen-ms-max) {
+        display: none;
+      }
+    }
+
+  }
+
+
+  .click-here {
+    padding-right: image-width("../images/arrow_down-xs.png") * 1.5;
+    position: relative;
+    display: inline-block;
+    .margin(40px, 0px);
+
+    &::before {
+      content             : "";
+      background-image    : url("../images/arrow_down-xs.png");
+      background-repeat: no-repeat;
+      .width(image-width("../images/arrow_down-xs.png"));
+      .height(image-height("../images/arrow_down-xs.png"));
+      position            : absolute;
+      right               : 0;
+
+      .top(-30px);
+
+      animation-name      : rotateInDownLeft;
+      animation-delay     : 1s;
+      animation-duration  : 1s;
+      animation-fill-mode : both;
+
+      @media (max-width : @screen-ms-max) {
+        background-size: contain;
+        .max-width(image-width("../images/arrow_down-xs.png"));
+        .max-height(image-height("../images/arrow_down-xs.png"));
+        width: 100%;
+        height: 174%;
+
+      }
+
+
+    }
+
+  }
+
+
+
+  .img-answer {
+    .margin-bottom(65px);
+  }
+
+  article {
+    &.question {
+      .font-size(20px);
+      font-family: @font-family-nivea-light;
+      text-transform: uppercase;
+      @media (min-width : @screen-md-min) {
+        .margin-bottom(30px);
+      }
+    }
+  }
+
+  #questions {
+    //@media (min-width : @screen-lg-min) {
+      //position: relative;
+      //top: -100px;
+    //}
+  }
+
+  .winner-merch-box {
+    position: relative;
+    @media (min-width : @screen-sm-min) {
+      .top(-100px);
+    }
+
+  }
+
+  .today-win_merch-txt {
+    position: relative;
+    @media (min-width : @screen-ms-min) and (max-width : @screen-ms-max) {
+      .top(-100px);
+    }
+
+  }
+
+
+  .winner-box {
+    text-align: center;
+    @imgTodayWinHeight: 154px;
+
+    &::before {
+      //@media (min-width : @screen-sm-min) and (max-width : @screen-sm-max) {
+      //  content: "";
+      //  background: url("../images/txt_dnesni-vyhra-sm.png");
+      //  background-size: 100%;
+      //  .width(image-width("../images/txt_dnesni-vyhra-sm.png"));
+      //  .height(image-height("../images/txt_dnesni-vyhra-sm.png"));
+      //  position: absolute;
+      //  bottom: 0;
+      //  left: calc(~'45% - 100px'); // 200 / 2
+      //}
+
+      //@media (min-width : @screen-ms-min) and (max-width : @screen-ms-max) {
+      //  content: "";
+      //  background: url("../images/txt_dnesni-vyhra-ms.png");
+      //  background-size: 100%;
+      //  .width(image-width("../images/txt_dnesni-vyhra-ms.png"));
+      //  .height(image-height("../images/txt_dnesni-vyhra-ms.png"));
+      //  position: absolute;
+      //  left: 0;
+      //  top: calc(~'45% - 77px'); // 154 / 2
+      //}
+
+      //@media (max-width : @screen-xs-max) {
+      //  content: "";
+      //  background: url("../images/txt_dnesni-vyhra-xs.png");
+      //  background-size: 100%;
+      //  .width(image-width("../images/txt_dnesni-vyhra-xs.png"));
+      //  .height(image-height("../images/txt_dnesni-vyhra-xs.png"));
+      //  position: absolute;
+      //  top: 0;
+      //  left: calc(~'50% - 102px'); // 205 / 2
+      //}
+
+    }
+
+    img {
+      //@media (min-width : @screen-sm-min) and (max-width : @screen-sm-max) {
+      //  .padding-bottom(image-height("../images/txt_dnesni-vyhra-sm.png"));
+      //}
+      //@media (min-width : @screen-ms-min) and (max-width : @screen-ms-max) {
+      //  .padding-left(image-width("../images/txt_dnesni-vyhra-ms.png"));
+      //}
+      //@media (max-width : @screen-xs-max) {
+      //  .padding-top(image-height("../images/txt_dnesni-vyhra-xs.png"));
+      //}
+    }
+
+
+  }
+
+  .quiz-check {
+    .margin-bottom(52px);
+    .margin-top(52px);
+
+    &:last-of-type {
+      .margin-bottom(30px);
+    }
+
+
+    @media (max-width : @screen-ms-max) {
+      .margin-bottom(80px);
+      .margin-top(80px);
+    }
+
+
+    label {
+      font-family     : @font-family-nivea-light;
+      .font-size(20px);
+      text-transform  : uppercase;
+      text-decoration : underline;
+      color           : @brand-primary;
+
+      &:hover {
+        color : @brand-info;
+      }
+    }
+
+    [type="radio"]:checked + label {
+      color : @brand-info;
+    }
+  }
+
+
+
+
+
+
+  #calendar-menu-mobile {
+    @media (min-width : @screen-sm-min) {
+      display: none;
+    }
+
+    .today {
+      .padding(40px);
+
+      img {
+        display: inline-block;
+      }
+    }
+
+    a#today-select {
+      text-decoration: none;
+      display: block;
+    }
+
+    .number {
+      font-family: NiveaCreme, fantasy;
+      .font-size(135px);
+      line-height: 1;
+      color: @brand-info;
+      .padding-top(40px);
+      .padding-left(40px);
+      .padding-right(40px);
+      @media (max-width : @screen-xs-max) {
+        font-size: unit(135 / (@screen-xs-max / 100 ), vw);
+        padding: unit(40 / (@screen-xs-max / 100 ), vw) unit(40 / (@screen-xs-max / 100 ), vw) 0 unit(40 / (@screen-xs-max / 100 ), vw);
+      }
+    }
+
+    .symbol {
+      transition: transform 200ms;
+    }
+
+    .day {
+      text-decoration: none;
+      text-align: center;
+      display: block;
+
+      &:hover {
+        .symbol {
+          transform: rotate(6deg);
+        }
+
+      }
+    }
+
+  }
+
+
+  .calendar-decorate {
+    @media (min-width: @screen-lg-min) {
+      display: none;
+    }
+  }
+
+
+
+
+
+
+  #calendar-menu {
+    background: url("../images/kolo.png") no-repeat center center;
+    position: absolute;
+    z-index: 10;
+    left: 0;
+    right: 0;
+    top :0;
+    .padding-top(50px);
+
+    @media (min-width : @screen-lg-min) {
+      background-position-y: calc(~'100% - 25px');
+    }
+    //@media (min-width : @screen-md-min) and (max-width : @screen-md-max) {
+    //  background-position-y: calc(~'100% + 100px');
+    //  background-size: calc(~'100% + 600px');
+    //}
+    //@media (min-width : @screen-sm-min) and (max-width : @screen-sm-max) {
+    //  background-position-y: calc(~'100% + 0px');
+    //  background-size: calc(~'100% + 600px');
+    //}
+
+    @media (max-width: @screen-md-max) {
+      position: inherit;
+      background: none;
+
+      .calendar-decorate {
+        display: block;
+        max-width: 100%;
+      }
+
+      .calendar-content {
+        position: absolute;
+        top: 21%;
+        left: 20%;
+        right: 20%;
+        bottom: 27%;
+        align-content: center;
+      }
+
+      .container {
+        position: relative;
+      }
+
+      .number {
+        font-size: 3.0vw;
+      }
+
+
+      .part-footer {
+        position: absolute;
+        left: 20%;
+        right: 20%;
+        bottom: 16%;
+        top: 75%;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        .bottom-box {
+          margin-top: 0;
+
+          .description, .about {
+            float: none;
+          }
+        }
+      }
+
+    }
+
+
+    @media (max-width : @screen-ms-max) {
+      display: none;
+    }
+
+
+
+    @color-dash-box: rgba(122,177,221,0.4);
+    @grid-space: 6px;
+    .grid {
+      background: linear-gradient(to right, @color-dash-box 33%, rgba(255,255,255,0.0) 0%) top / @grid-space 1px repeat-x,
+      linear-gradient(to right, @color-dash-box 23%, rgba(255,255,255,0.0) 0%) bottom / @grid-space 1px repeat-x,
+      linear-gradient(@color-dash-box 23%, rgba(255,255,255,0.0) 0%) left / 1px @grid-space repeat-y,
+      linear-gradient(@color-dash-box 23%, rgba(255,255,255,0.0) 0%) right / 1px @grid-space repeat-y;
+      //.padding-bottom(7px);
+      display: flex;
+      //flex-flow: column nowrap;
+      justify-content: flex-end;
+      align-items: center;
+      padding: 1%;
+
+      //border: 1px dashed #90bde1;
+
+      &.active {
+        box-shadow: inset 5px 5px 10px 7px rgba(10,10,10,0.2);
+        cursor: pointer;
+        .number {
+          color: #36b2e4;
+        }
+
+        @keyframes rotating {
+          from {
+            transform: rotate(0deg);
+          }
+          to {
+            transform: rotate(6deg);
+          }
+        }
+
+        .symbol {
+          animation: rotating 1s ease-in-out 0s alternate infinite both;
+        }
+
+      }
+
+    }
+
+
+    .day {
+      text-decoration: none;
+      display: inline-block;
+      padding-top: 10%;
+
+      /*
+      .symbol {
+        transition: all 200ms;
+      }
+
+      &:hover {
+        .symbol {
+          opacity :0.8;
+          transform: scale(1.05);
+        }
+
+      }
+      */
+    }
+
+    .number {
+      font-family: NiveaCreme, fantasy;
+      .font-size(45px);
+      .padding(5px);
+      line-height: 1;
+      color: #3151a0;
+      display: inline-block;
+      position: absolute;
+      left:2%;
+      top:2%;
+      z-index: 15;
+      @media (max-width : @screen-md-max) {
+        left:3%;
+        top:3%;
+      }
+    }
+
+
+
+    .part-footer {
+      @media (min-width : @screen-lg-min) {
+        .margin-bottom(500px);
+      }
+      //@media (min-width : @screen-md-min) and (max-width : @screen-md-max) {
+      //  .margin-bottom(350px);
+      //}
+      //@media (min-width : @screen-sm-min) and (max-width : @screen-sm-max) {
+      //  .margin-bottom(450px);
+      //}
+
+    }
+
+
+  }
+
+  @keyframes calendar-blur {
+    from {
+      filter: blur(15px);
+      transform: scale(1.05);
+      //opacity: 0.25;
+    }
+    to {
+      filter: blur(0);
+      transform: scale(1.0);
+      //opacity: 1.0;
+    }
+  }
+
+
+  &.calendar-blur {
+    #calendar-menu {
+      animation-name      : calendar-blur;
+      animation-duration  : 500ms;
+      animation-fill-mode : both;
+
+    }
+  }
+}
+
+
+#register-in {
+  color: @brand-danger;
+  text-transform: uppercase;
+
+  a {
+    color: @brand-danger;
+    font-weight: bold;
+  }
+
+}

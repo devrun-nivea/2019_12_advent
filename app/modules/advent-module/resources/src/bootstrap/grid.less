@@ -1,0 +1,107 @@
+//
+// Grid system
+// --------------------------------------------------
+
+
+// Container widths
+//
+// Set the container width, and override it for fixed navbars in media queries.
+
+.container {
+  .container-fixed();
+
+  @media (max-width : @screen-ms-max) {
+    .padding-left( @grid-gutter-width);
+    .padding-right( @grid-gutter-width);
+  }
+  @media (min-width : @screen-ms-min) and (max-width : @screen-ms-max) {
+    .max-width(@container-sm - 1);
+    width : 100%;
+    //width: @container-ms;
+  }
+  @media (min-width : @screen-sm-min) and (max-width : @screen-sm-max) {
+    .max-width(@container-md - 1);
+    width : 100%;
+  }
+  @media (min-width : @screen-md-min) and (max-width : @screen-md-max) {
+    .max-width(@container-lg - 1);
+    width : 100%;
+  }
+  @media (min-width : @screen-lg-min) {
+    .width(@container-lg);
+  }
+}
+
+
+// Fluid container
+//
+// Utilizes the mixin meant for fixed width containers, but without any defined
+// width for fluid, full width layouts.
+
+.container-fluid {
+  .container-fixed();
+}
+
+
+// Row
+//
+// Rows contain and clear the floats of your columns.
+
+.row {
+  .make-row();
+}
+
+
+// Columns
+//
+// Common styles for small and large grid columns
+
+.make-grid-columns();
+
+
+// Extra small grid
+//
+// Columns, offsets, pushes, and pulls for extra small devices like
+// smartphones.
+
+//@media (max-width: @screen-xs-max) {
+//}
+  .make-grid(xs);
+
+
+// Medium Small grid
+//
+// Columns, offsets, pushes, and pulls for the small device range, from phones
+// to tablets.
+
+@media (min-width: @screen-ms-min) {
+  .make-grid(ms);
+}
+
+
+// Small grid
+//
+// Columns, offsets, pushes, and pulls for the small device range, from phones
+// to tablets.
+
+@media (min-width: @screen-sm-min) {
+  .make-grid(sm);
+}
+
+
+// Medium grid
+//
+// Columns, offsets, pushes, and pulls for the desktop device range.
+
+@media (min-width: @screen-md-min) {
+  .make-grid(md);
+}
+
+
+// Large grid
+//
+// Columns, offsets, pushes, and pulls for the large desktop device range.
+
+@media (min-width: @screen-lg-min) {
+  .make-grid(lg);
+}

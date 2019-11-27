@@ -1,0 +1,4 @@
+config.development.neon
+config.test.neon
+settings.php
+!.gitignore

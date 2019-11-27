@@ -1,0 +1,35 @@
+#calendar {
+  .winner-box {
+    &::before {
+      @media (min-width : @screen-sm-min) and (max-width : @screen-sm-max) {
+        background-image : url("../images/txt_dnesni-vyhra-sm_sk.png");
+        .width(image-width("../images/txt_dnesni-vyhra-sm_sk.png"));
+        .height(image-height("../images/txt_dnesni-vyhra-sm_sk.png"));
+      }
+
+      @media (min-width : @screen-ms-min) and (max-width : @screen-ms-max) {
+        background-image : url("../images/txt_dnesni-vyhra-ms_sk.png");
+      }
+      @media (max-width : @screen-xs-max) {
+        background-image : url("../images/txt_dnesni-vyhra-xs_sk.png");
+        .width(image-width("../images/txt_dnesni-vyhra-xs_sk.png"));
+        .height(image-height("../images/txt_dnesni-vyhra-xs_sk.png"));
+      }
+
+    }
+
+    img {
+      @media (min-width : @screen-sm-min) and (max-width : @screen-sm-max) {
+        .padding-bottom(image-height("../images/txt_dnesni-vyhra-sm_sk.png"));
+      }
+      @media (min-width : @screen-ms-min) and (max-width : @screen-ms-max) {
+        .padding-left(image-width("../images/txt_dnesni-vyhra-ms_sk.png"));
+      }
+      @media (max-width : @screen-xs-max) {
+        .padding-top(image-height("../images/txt_dnesni-vyhra-xs_sk.png"));
+      }
+    }
+
+
+  }
+}

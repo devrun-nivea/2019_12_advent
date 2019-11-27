@@ -1,0 +1,62 @@
+{if !$presenter->isNiveaAjax()}
+	{block title}{$title}{/block}
+{/if}
+
+<section n:block="content" id="homepage">
+	<div id="play-frame" class="container">
+		<div class="part-content text-center img-preload">
+
+			<div class="row">
+				<div class="col-sm-5 col-md-6 col-lg-5 creme" data-anim="active" data-anim-sound="{$basePath}/resources/adventModule/mp3/page-flip-12.mp3">  {* shaving-cream-1.mp3  *}
+
+					<div data-anim="swirl-out-bottom-bck" data-anim-delay="1.1s" data-anim-sound="{$basePath}/resources/adventModule/mp3/page-flip-12.mp3">
+						<img n:image="'resources/adventModule/images/text/nadilka_cz_txt.png', '295x83', shrink_only" alt="{_advent.homepage.alt_o_tazavem_kalendari}" class="hidden-xs hidden-ms img-responsive inline-block">
+						<img n:image="'resources/adventModule/images/text/nadilka_cz_txt.png', '640x400', shrink_only" alt="{_advent.homepage.alt_o_tazavem_kalendari}" class="visible-xs-inline-block visible-ms-inline-block img-responsive">
+					</div>
+
+					<article class="m-t-4em">
+						<div class="citate">
+							<p n:article="advent.homepage.text1 header simple" class="citate-top" data-anim="swirl-out-bottom-bck" data-anim-delay="0.5s" data-anim-sound="{$basePath}/mp3/page-flip-12.mp3">{article |noescape}</p>
+							<img n:image="'resources/adventModule/images/base/homepage_bg-xs.png'" alt="kremik" class="img-responsive visible-xs visible-ms">
+							<p n:article="advent.homepage.text1 subHeader text" class="citate-bottom" data-anim="swirl-out-bottom-bck" data-anim-delay="0.8s">{article |noescape}</p>
+						</div>
+					</article>
+					<div class="m-b-8em" data-anim="swirl-out-bottom-bck" data-anim-delay="0.9s" data-anim-sound="{$basePath}/mp3/page-flip-12.mp3">
+						<a rel="nofollow" href="{link Day:|proxyLink}" data-pre-loading="true" data-ajax-url="{link Day:}" onclick="dataLayer.push({ 'ga_event': 'click', 'pageview': '/advent-calendar', 'eventCategory': 'button', 'eventAction': 'want_to_reward', 'eventValue': {link Day:|proxyLink} });" data-ajax-off="nprogress" class="ajax-page hidden-ms hidden-xs desktop-effect btn btn-md btn-primary">{_advent.homepage.link}</a>
+						<a rel="nofollow" href="{link Day:|proxyLink}" data-pre-loading="true" data-ajax-url="{link Day:}" onclick="dataLayer.push({ 'ga_event': 'click', 'pageview': '/advent-calendar', 'eventCategory': 'button', 'eventAction': 'want_to_reward', 'eventValue': {link Day:|proxyLink} });" data-ajax-off="nprogress" class="ajax-page visible-xs visible-ms mobile-effect btn btn-md btn-warning">{_advent.homepage.link}</a>
+
+						{*
+						<a rel="nofollow" href="{if $presenter->isDebug()}{link Form:day|proxyLink}{else}{link Form:|proxyLink}{/if}" data-pre-loading="true" data-ajax-url="{if $presenter->isDebug()}{link Form:day}{else}{link Form:}{/if}" onclick="dataLayer.push({ 'ga_event': 'click', 'pageview': '/advent-calendar', 'eventCategory': 'button', 'eventAction': 'want_to_reward', 'eventValue': {link Form:|proxyLink} });" data-ajax-off="nprogress" class="ajax-page hidden-ms hidden-xs desktop-effect btn btn-md btn-primary">{_advent.homepage.link}</a>
+						<a rel="nofollow" href="{if $presenter->isDebug()}{link Form:day|proxyLink}{else}{link Form:|proxyLink}{/if}" data-pre-loading="true" data-ajax-url="{if $presenter->isDebug()}{link Form:day}{else}{link Form:}{/if}" onclick="dataLayer.push({ 'ga_event': 'click', 'pageview': '/advent-calendar', 'eventCategory': 'button', 'eventAction': 'want_to_reward', 'eventValue': {link Form:|proxyLink} });" data-ajax-off="nprogress" class="ajax-page visible-xs visible-ms mobile-effect btn btn-md btn-warning">{_advent.homepage.link}</a>
+						*}
+					</div>
+					<span class="doit" data-anim="swirl-out-bottom-bck" data-anim-delay="0.7s" data-anim-sound="{$basePath}/mp3/page-flip-12.mp3">
+
+					<img n:image="'resources/adventModule/images/text/hura_cz_txt.png', '172x75', shrink_only" alt="hurá do toho" class="hidden-ms hidden-xs img-responsive">
+					<img n:image="'resources/adventModule/images/text/hura_cz_txt.png', '640x400', shrink_only" alt="hurá do toho" class="visible-xs visible-ms img-responsive">
+				</span>
+				</div>
+
+
+				{*<a rel="nofollow" href="{link ThankYou:|proxyLink}" data-pre-loading="true" data-ajax-url="{link ThankYou:}"></a>*}
+
+				{*<div class="col-md-7">*}
+				{*<img src="{$proxyUrl}{$basePath}/images/cremik_sanky.png" class="img-responsive inline-block" alt="cremik">*}
+				{*</div>*}
+			</div>
+		</div>
+
+		<div class="part-footer">
+			<div class="bottom-box">
+				<div class="row">
+					<div class="col-md-12 col-sm-12">
+						<p n:editable="advent.soutez_probiha" class="text-info text-description description">{_advent.soutez_probiha|noescape}</p>
+						<p n:editable="advent.pravidla_najdete" class="text-info text-description about arrow-next">{_advent.pravidla_najdete|noescape}</p>
+{*						{capture $link}<a target="_blank" class="text-info" rel="nofollow" href="{_advent.rules_url}">{_advent.zde}</a>{/capture}*}
+{*						<p n:editable="advent.pravidla_najdete" class="text-info text-description about arrow-next">{_advent.pravidla_najdete, ['link' => $link]|noescape}</p>*}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

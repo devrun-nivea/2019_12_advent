@@ -1,0 +1,128 @@
+&.hu {
+  .part-footer {
+    .bottom-box {
+      .description, .about {
+        //.font-size(13px);
+        a {
+
+        }
+        span {
+          font-family: @font-family-nivea-light;
+          //font-weight: bold;
+        }
+        a {
+          font-family: @font-family-nivea-medium;
+        }
+      }
+
+
+      .description {
+        @media (max-width : @screen-md-max) {
+          //float: none;
+        }
+      }
+
+      .about {
+        @media (max-width : @screen-md-max) {
+          //float: none;
+        }
+      }
+    }
+  }
+}
+
+
+
+.part-footer {
+  position: relative;
+  .margin(7px, 0px);
+  .font-size(15px);
+  font-family: @font-family-nivea-light;
+  text-transform: uppercase;
+
+  @media (max-width : @screen-sm-max) {
+    .margin(48px, 0px);
+  }
+  @media (max-width : @screen-ms-max) {
+    .font-size(23px);
+    line-height: 2.4;
+  }
+  @media (max-width : @screen-xs-max) {
+    font-size : unit((21 / (@screen-xs-max + 50))*100, vw);
+    margin: unit(48 / (@screen-xs-max / 100 ), vw) 0;
+  }
+
+
+  .part-footer-content {
+    .min-height(82px);
+
+    .bg {
+      display: inline-block;
+    }
+
+  }
+
+
+  .bottom-box {
+    .clearfix();
+    margin-top: 25px;
+
+    @media (max-width : @screen-xs-max) {
+      margin-top: 15px;
+    }
+
+    .col-footer {
+      .width(860px);
+
+      position: relative;
+      min-height: 0.1rem;
+      padding-left: 2rem;
+      padding-right: 2rem;
+      margin: 0 auto;
+
+      @media (max-width : @screen-sm-max) {
+        width: 100%;
+      }
+
+    }
+
+    .description, .about {
+      text-align: center;
+      margin-bottom: 0;
+      font-family: @font-family-nivea-light;
+      span, a {
+        font-family: @font-family-nivea-book;
+      }
+    }
+
+    .description {
+      @media (min-width : @screen-sm-min) {
+        float: left;
+      }
+    }
+
+    @link-rule-color:            @brand-primary;
+    @link-rule-hover-color:      darken(@link-rule-color, 15%);
+
+    .about {
+      a {
+        color: @link-rule-color;
+        transition: all 300ms;
+        display: inline-block;
+
+        &:after {
+          content: " >";
+        }
+        &:hover {
+          color: @link-rule-hover-color;
+        }
+      }
+
+      @media (min-width : @screen-sm-min) {
+        float: right;
+      }
+    }
+  }
+
+}
+

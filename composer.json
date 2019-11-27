@@ -1,0 +1,57 @@
+{
+  "name": "devrun-nivea/2019_12_advent",
+  "description": "Pexeso game",
+  "keywords": ["devrun", "nivea", "pexeso", "kalendář"],
+  "minimum-stability": "stable",
+  "homepage": "http://ext16-cz.nivea.com/2019_12_advent",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "Pavel Paulík"
+    }
+  ],
+  "require": {
+    "devrun/framework": "^0.8",
+    "devrun/cms-module": "v0.8.*",
+    "devrun/article-module": "v0.8.*",
+    "devrun/contest-module": "dev-master",
+    "ext-curl": "*",
+    "ext-json": "*"
+  },
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "https://github.com/developer-run/framework"
+    },
+    {
+      "type": "vcs",
+      "url": "https://github.com/developer-run/cms-module"
+    },
+    {
+      "type": "vcs",
+      "url": "https://github.com/developer-run/contest-module"
+    },
+    {
+      "type": "vcs",
+      "url": "https://github.com/developer-run/article-module"
+    },
+    {
+      "type": "vcs",
+      "url": "https://github.com/developer-run/ckeditor-module"
+    },
+    {
+      "type": "vcs",
+      "url": "https://github.com/developer-run/phantom-module"
+    }
+  ],
+  "scripts": {
+    "post-install-cmd": [
+      "PhantomInstaller\\Installer::installPhantomJS"
+    ]
+  },
+  "extra": {
+    "branch-alias": {
+      "dev-master": "0.8-dev"
+    }
+  }
+}

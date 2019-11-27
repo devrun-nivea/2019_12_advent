@@ -1,0 +1,12 @@
+### Editor
+.idea
+.tmp
+package-lock.json
+
+### Composer template
+composer.phar
+composer.lock
+/vendor/
+/node_modules/
+
+docs/

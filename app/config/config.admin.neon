@@ -1,0 +1,9 @@
+tracy:
+	showLocation: true
+
+services:
+
+#	remove cache for administration
+	nette.latteFactory:
+		setup:
+			- setTempDirectory(null)

@@ -1,0 +1,23 @@
+#cards {
+  .col-card {
+    display : block;
+  }
+
+  .card-container {
+    float: left;
+    .height(200px);
+    @media (min-width : @screen-md-min) and (max-width : @screen-md-max) {
+      height: 15vw;
+    }
+    @media (min-width : @screen-sm-min) and (max-width : @screen-sm-max) {
+      height: 20vw;
+    }
+    @media (min-width : @screen-ms-min) and (max-width : @screen-ms-max) {
+      height: 25vw;
+    }
+    @media (max-width : @screen-xs-max) {
+      height: 30vw;
+    }
+  }
+
+}

@@ -1,0 +1,172 @@
+{if !$presenter->isNiveaAjax()}
+	{block title}{$title}{/block}
+{/if}
+
+{block content|trim}
+	<section id="thanks" data-page-sound="{$basePath}/resources/adventModule/mp3/page-flip-13.mp3">
+		<div class="content">
+
+			<div class="container">
+				<div class="frame-play thanks">
+					<div class="part-title text-center">
+						<article>
+							<div class="animated swing-in-top-fwd p-1" style="animation-delay: 300ms;" data-anim-sound="{$basePath}/resources/adventModule/mp3/page_turn.mp3">
+								{*<p class="description text-primary">{_site.soutez}</p>*}
+								<h3 n:article="advent.thanks.text1 header simple">{article |noescape}</h3>
+								<div class="bottom-box">
+									<p n:article="advent.thanks.text1 subHeader simple" class="tip">{article |noescape}</p>
+								</div>
+							</div>
+							<span class="line"></span>
+							<div class="bottom-title-box animated swing-in-top-fwd" style="animation-delay: 500ms;">
+								<h2 n:article="advent.thanks.text2 header simple" class="bottom-title-box animated swing-in-top-fwd" style="animation-delay: 500ms;">{article |noescape}</h2>
+
+								<img n:image="'resources/adventModule/images/text/muzete_pomahat_txt.png'" alt="{_advent.thanks.alt_pomahat}" class="hidden-xs hidden-ms img-responsive inline-block">
+								<img n:image="'resources/adventModule/images/text/muzete_pomahat_xs-txt.png'" alt="{_advent.thanks.alt_pomahat}" class="visible-xs-inline-block visible-ms-inline-block img-responsive inline-block">
+
+								<div class="thx-creme animated bounceInDown animation-delay-500ms" style="animation-delay: 1000ms;">
+									<img src="{$proxyUrl}{$basePath}/resources/adventModule/images/thx_cremik.png" class="img-responsive" alt="cremik">
+								</div>
+
+								<p n:article="advent.thanks.text2 subHeader simple" class="text-justify">{article |noescape}</p>
+							</div>
+						</article>
+					</div>
+					<div class="part-content">
+
+						<div id="teasers" class="row">
+							<div class="col-xs-12 col-sm-12 col-md-8 col-md-offset-2 text-center animated flipInX" style="animation-delay: 900ms;">
+								<div class="teaser-box">
+									<div class="teaser-header">
+										<h3 n:article="advent.thanks.teaser header simple">{article |noescape}</h3>
+									</div>
+									<div class="art-img animated pulse" style="animation-delay: 1700ms;">
+{*										<img src="{$basePath}/resources/adventModule/images/packages/THX_mix.png">*}
+										<img n:image="'resources/adventModule/images/packages/THX_mix.png'" alt="balíčky" class="img-responsive inline-block">
+									</div>
+									<div class="buttons">
+										<a target="_blank" rel="nofollow" href="{_advent.thanks.survey.link1}" class="btn btn-md btn-primary" onclick="dataLayer.push({ 'ga_event': 'click', 'pageview': '/thank-you', 'eventCategory': 'button', 'eventAction': 'Next tips' });">{_advent.thanks.more_packets}</a>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div id="surveys" class="row animated flipInX" style="animation-delay: 1000ms;">
+							<div class="col-md-12">
+								{if $locale == cs}
+									{include #survey_cs}
+								{elseif $locale == sk}
+									{include #survey_sk}
+								{elseif $locale == hu}
+									{include #survey_hu}
+								{/if}
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	{if $registrationSend}
+		<script>dataLayer.push({ 'ga_event': 'click', 'pageview': '/advent-calendar-form', 'eventCategory': 'button', 'eventAction': 'send' });</script>
+	{/if}
+{/block}
+
+<div n:define="survey_cs" class="survey-box">
+	<div class="survey-header">
+		<h3 n:article="advent.thanks.survey1 header simple">{article |noescape}</h3>
+	</div>
+
+	<div class="row d-flex flex-wrap align-items-center">
+		<div class="col-xs-12 col-md-6 text-center">
+			<div class="survey-content-1 row">
+				<div class="col1 col-xs-12 col-sm-6 column-center">
+					<img n:image="'resources/adventModule/images/logos/logo_npor-cs_xs.png', '210x98', fit" alt="{_site.thanks.alt_pecuje}" class="logo-margin img-responsive visible-sm visible-md visible-lg">
+					<img n:image="'resources/adventModule/images/logos/logo_npor-cs_xs.png'" alt="{_site.thanks.alt_pecuje}" class="logo-margin img-responsive hidden-sm hidden-md hidden-lg">
+				</div>
+				<div class="col2 col-ms-6 column-center hidden-ms hidden-xs">
+					<h3 n:article="advent.thanks.survey1 header simple" class="fs-27">{article |noescape}</h3>
+					<a href="{_advent.thanks.survey.link2}" target="_blank" rel="nofollow" class="btn btn-md btn-primary m-b-13"
+					   onclick="dataLayer.push({ 'ga_event': 'click', 'pageview': '/thank-you', 'eventCategory': 'button', 'eventAction': 'More informations' });">{_advent.thanks.more_about}</a>
+				</div>
+			</div>
+		</div>
+		<div class="col-xs-12 col-md-6 text-center">
+			<div class="survey-content-2 row">
+				<div class="col-ms-4 col-xs-12 column-center">
+					<img n:image="'resources/adventModule/images/logos/logo_med2d_xs.png', '84x103', fit" alt="balíčky" class="logo-margin img-responsive visible-sm visible-md visible-lg">
+					<img n:image="'resources/adventModule/images/logos/logo_med2d_xs.png'" alt="balíčky" class="logo-margin img-responsive hidden-sm hidden-md hidden-lg">
+				</div>
+				<div class="col-ms-4 col-xs-12 column-center">
+
+					<img n:image="'resources/adventModule/images/logos/logo_opd-cs_xs.png', '72x104', fit" alt="logo_opd" class="img-responsive visible-sm visible-md visible-lg">
+					<img n:image="'resources/adventModule/images/logos/logo_opd-cs_xs.png'" alt="logo_opd" class="img-responsive hidden-sm hidden-md hidden-lg">
+				</div>
+				<div class="col-ms-4 col-xs-12 column-center">
+					<img n:image="'resources/adventModule/images/logos/logo_cz-xs.jpg', '135x99', fit" alt="logo" class="img-responsive visible-sm visible-md visible-lg">
+					<img n:image="'resources/adventModule/images/logos/logo_cz-xs.jpg'" alt="logo" class="img-responsive hidden-sm hidden-md hidden-lg">
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="buttons">
+		<a target="_blank" rel="nofollow" href="{_advent.thanks.survey.link2}" class="btn btn-md btn-primary" onclick="dataLayer.push({ 'ga_event': 'click', 'pageview': '/thank-you', 'eventCategory': 'button', 'eventAction': 'Next tips' });">{_advent.thanks.more_about}</a>
+	</div>
+</div>
+
+
+<div n:define="survey_sk" class="survey-box">
+	<div class="survey-header">
+		<h3 n:article="advent.thanks.survey1 header simple">{article |noescape}</h3>
+	</div>
+
+	<div class="row d-flex flex-wrap align-items-center">
+		<div class="col-xs-12 col-md-6 text-center">
+			<div class="survey-content-1 row">
+				<div class="col1 col-xs-12 col-sm-6 column-center">
+					<img n:image="'resources/adventModule/images/logos/logo_npor-sk_xs.png', '210x99', fit" alt="{_site.thanks.alt_pecuje}" class="logo-margin img-responsive visible-sm visible-md visible-lg">
+					<img n:image="'resources/adventModule/images/logos/logo_npor-sk_xs.png'" alt="{_site.thanks.alt_pecuje}" class="logo-margin img-responsive hidden-sm hidden-md hidden-lg">
+				</div>
+				<div class="col2 col-ms-6 column-center hidden-ms hidden-xs">
+					<h3 n:article="advent.thanks.survey1 header simple" class="fs-27">{article |noescape}</h3>
+					<a href="{_advent.thanks.survey.link2}" target="_blank" rel="nofollow" class="btn btn-md btn-primary m-b-13"
+					   onclick="dataLayer.push({ 'ga_event': 'click', 'pageview': '/thank-you', 'eventCategory': 'button', 'eventAction': 'More informations' });">{_advent.thanks.more_about}</a>
+				</div>
+			</div>
+		</div>
+		<div class="col-xs-12 col-md-6 text-center">
+			<div class="survey-content-2 row">
+				<div class="col-xs-6 column-center">
+					<img n:image="'resources/adventModule/images/logos/logo_med2d_xs.png', '84x103', fit" alt="{_site.thanks.alt_pecuje}" class="logo-margin img-responsive visible-sm visible-md visible-lg">
+					<img n:image="'resources/adventModule/images/logos/logo_med2d_xs.png'" alt="{_site.thanks.alt_pecuje}" class="logo-margin img-responsive hidden-sm hidden-md hidden-lg">
+				</div>
+				<div class="col-xs-6 column-center">
+{*					<img src="{$basePath}/resources/adventModule/images/logos/logo_sk.png">*}
+					<img n:image="'resources/adventModule/images/logos/logo_sk-xs.png', '134x108', fit" alt="{_site.thanks.alt_nivea}" class="img-responsive visible-sm visible-md visible-lg">
+					<img n:image="'resources/adventModule/images/logos/logo_sk-xs.png'" alt="{_site.thanks.alt_nivea}" class="img-responsive hidden-sm hidden-md hidden-lg">
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="buttons">
+		<a target="_blank" rel="nofollow" href="{_advent.thanks.survey.link2}" class="btn btn-md btn-primary" onclick="dataLayer.push({ 'ga_event': 'click', 'pageview': '/thank-you', 'eventCategory': 'button', 'eventAction': 'Next tips' });">{_advent.thanks.more_about}</a>
+	</div>
+</div>
+
+
+<div n:define="survey_hu">
+	<div class="col1 col-xs-12 col-ms-6 col-md-3">
+		<img src="{$proxyUrl}{$basePath}/images/logo_npor-{$locale}_xs.png" class="logo-margin img-responsive" alt="{_site.thanks.alt_pecuje}">
+	</div>
+	<div class="col2 col-xs-12 col-ms-12 col-md-6">
+		<h3 class="fs-27">{_site.thanks.survey.text|noescape}</h3>
+	</div>
+	<div class="col3 col-xs-12 col-ms-6 col-md-3">
+		<a href="{_site.thanks.survey.link2}" target="_blank" rel="nofollow" class="btn btn-md btn-primary" onclick="dataLayer.push({ 'ga_event': 'click', 'pageview': '/thank-you', 'eventCategory': 'button', 'eventAction': 'More informations' });" >{_advent.more_about}</a>
+	</div>
+</div>
+
+

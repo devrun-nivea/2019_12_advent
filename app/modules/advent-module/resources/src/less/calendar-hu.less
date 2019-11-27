@@ -1,0 +1,46 @@
+@win_img-hu_xs: "../images/txt_dnesni-vyhra-xs_hu.png";
+@win_img-hu_ms: "../images/txt_dnesni-vyhra-ms_hu.png";
+@win_img-hu_sm: "../images/txt_dnesni-vyhra-sm_hu.png";
+@win_img-hu-width_xs: image-width(@win_img-hu_xs);
+@win_img-hu-width_ms: image-width(@win_img-hu_ms);
+@win_img-hu-width_sm: image-width(@win_img-hu_sm);
+
+#calendar {
+  .winner-box {
+    &::before {
+      @media (min-width : @screen-sm-min) and (max-width : @screen-sm-max) {
+        background-image : url(@win_img-hu_sm);
+        .width(image-width(@win_img-hu_sm));
+        .height(image-height(@win_img-hu_sm));
+      }
+
+      @media (min-width : @screen-ms-min) and (max-width : @screen-ms-max) {
+        background-image : url(@win_img-hu_ms);
+        .width(image-width(@win_img-hu_ms));
+        .height(image-height(@win_img-hu_ms));
+      }
+      @media (max-width : @screen-xs-max) {
+        background-image : url(@win_img-hu_xs);
+        .width(image-width(@win_img-hu_xs));
+        .height(image-height(@win_img-hu_xs));
+
+        @rem-value: ~`pxtorem('@{win_img-hu-width_xs}')`;
+        left: ~"calc(50% - @{rem-value} / 2)";
+      }
+
+    }
+
+    img {
+      @media (min-width : @screen-sm-min) and (max-width : @screen-sm-max) {
+        .padding-bottom(image-height(@win_img-hu_sm));
+      }
+      @media (min-width : @screen-ms-min) and (max-width : @screen-ms-max) {
+        .padding-left(image-width(@win_img-hu_ms));
+      }
+      @media (max-width : @screen-xs-max) {
+        .padding-top(image-height(@win_img-hu_xs));
+      }
+    }
+
+  }
+}

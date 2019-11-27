@@ -1,0 +1,162 @@
+// display flex
+.d-flex {
+  display: flex;
+}
+.d-flex-lg {
+  @media (min-width : @screen-md-min) {
+    display: flex;
+  }
+}
+.d-flex-md {
+  @media (min-width : @screen-md-min) {
+    display: flex;
+  }
+}
+.d-flex-sm {
+  @media (min-width : @screen-sm-min) {
+    display: flex;
+  }
+}
+.d-flex-ms {
+  @media (min-width : @screen-ms-min) {
+    display: flex;
+  }
+}
+
+
+// align items
+.align-items-center {
+  align-items: center;
+}
+.align-items-lg-center {
+  @media (min-width : @screen-lg-min) {
+    align-items: center;
+  }
+}
+.align-items-md-center {
+  @media (min-width : @screen-md-min) {
+    align-items: center;
+  }
+}
+.align-items-sm-center {
+  @media (min-width : @screen-sm-min) {
+    align-items: center;
+  }
+}
+.align-items-ms-center {
+  @media (min-width : @screen-ms-min) {
+    align-items: center;
+  }
+}
+
+
+// justify-content
+.justify-content-center {
+  justify-content: center;
+}
+
+
+
+
+// flex direction row
+.flex-row {
+  flex-direction: row;
+}
+.flex-lg-row {
+  @media (min-width : @screen-lg-min) {
+    flex-direction: row;
+  }
+}
+.flex-md-row {
+  @media (min-width : @screen-md-min) {
+    flex-direction: row;
+  }
+}
+.flex-sm-row {
+  @media (min-width : @screen-sm-min) {
+    flex-direction: row;
+  }
+}
+.flex-ms-row {
+  @media (min-width : @screen-ms-min) {
+    flex-direction: row;
+  }
+}
+
+// flex direction column
+.flex-column {
+  flex-direction: column;
+}
+.flex-lg-column {
+  @media (min-width : @screen-lg-min) {
+    flex-direction: column;
+  }
+}
+.flex-md-column {
+  @media (min-width : @screen-md-min) {
+    flex-direction: column;
+  }
+}
+.flex-sm-column {
+  @media (min-width : @screen-sm-min) {
+    flex-direction: column;
+  }
+}
+.flex-ms-column {
+  @media (min-width : @screen-ms-min) {
+    flex-direction: column;
+  }
+}
+
+
+// order
+.order-xs-0 {
+  @media (max-width : @screen-xs-max) {
+    order: 0;
+  }
+}
+.order-xs-1 {
+  @media (max-width : @screen-xs-max) {
+    order: 1;
+  }
+}
+.order-xs-2 {
+  @media (max-width : @screen-xs-max) {
+    order: 2;
+  }
+}
+
+
+
+
+.flex-wrap {
+  flex-wrap : wrap;
+}
+.justify-content-between {
+  justify-content: space-between;
+}
+.justify-content-around {
+  justify-content :space-around;
+}
+
+
+
+
+
+
+
+.row.row-md-table {
+  @media (min-width : @screen-md-min) {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+
+    > div[class*='col-'] {
+      display: table-cell;
+      float: none;
+    }
+    .column-center {
+      vertical-align: middle;
+    }
+  }
+}

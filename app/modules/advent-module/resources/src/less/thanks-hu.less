@@ -1,0 +1,67 @@
+#thanks {
+  .teaser-box {
+    justify-content : inherit;
+  }
+
+
+  #surveys {
+    @media (min-width : @screen-sm-min) {
+      .survey-content {
+        > .row {
+          display : table;
+          table-layout: fixed;
+          width: calc(~'100% + 40px');
+
+          div[class*="col-"] {
+            display: table-cell;
+            vertical-align: middle;
+            float: none;
+          }
+        }
+      }
+    }
+
+    @media (min-width : @screen-ms-min) and (max-width : @screen-ms-max) {
+      .survey-content {
+
+        .btn {
+          .font-size(19px);
+        }
+      }
+
+    }
+    @media (max-width : @screen-ms-max) {
+      .survey-content {
+        > .row {
+          display : flex;
+          flex-flow: row wrap;
+          align-items: center;
+
+          .col1 {
+            order: 2;
+          }
+          .col2 {
+            order: 1;
+          }
+          .col3 {
+            order: 3;
+          }
+
+          div[class*="col-"] {
+            display: table-cell;
+            vertical-align: middle;
+            float: none;
+          }
+        }
+
+        //.btn {
+          //.font-size(19px);
+        //}
+
+      }
+    }
+
+  }
+}
+
+

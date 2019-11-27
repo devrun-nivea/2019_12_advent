@@ -1,0 +1,21 @@
+.calc-width(@margin, @fallback) {
+  width : percentage((@fallback - @margin) / (@fallback));
+  width : -o-calc(~"100% " - @margin);
+  width : -webkit-calc(~"100% " - @margin);
+  width : -moz-calc(~"100% " - @margin);
+  width : calc(~"100% " - @margin);
+}
+.percentWidth(@margin, @fallback) {
+  width: percentage((@fallback - @margin) / (@fallback));
+}
+
+@main-font-size: 16px;
+
+.x-font-rem (@property, @value) {
+
+  // This is a workaround, inspired by https://github.com/borodean/less-properties
+  @px-fallback: @value * @main-font-size;
+  -: ~`(function () { return ';@{property}: @{px-fallback}'; }())`;
+  -: ~`(function () { return ';@{property}: @{value}rem'; }())`;
+}
+

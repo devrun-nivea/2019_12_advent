@@ -1,0 +1,204 @@
+#homepage {
+
+  @media (min-width : @screen-md-min) {
+    overflow: hidden;
+    background-color: #E7F5FD;
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-image: url("../images/homepage_bg-lg-no-snow.jpg");
+  }
+  @media (min-width : @screen-lg-min) {
+    //background-image: url("../images/homepage_bg-lg.jpg");
+  }
+  @media (min-width : @screen-md-min) and (max-width : @screen-md-max) {
+    //background-image: url("../images/homepage_bg-md.jpg");
+  }
+  @media (min-width : @screen-sm-min) and (max-width : @screen-sm-max) {
+    //background-image: url("../images/homepage_bg-sm.jpg");
+  }
+
+  //padding-top: 104px;
+
+  .btn {
+    font-family: @font-family-nivea-medium;
+    //.font-size(14px);
+    padding-right: 60px;
+    padding-left: 60px;
+    @media (max-width : @screen-xs-max) {
+      padding-right: 0;
+      padding-left: 0;
+    }
+  }
+
+  .creme {
+    position: relative;
+    overflow: visible;
+
+    &:before {
+      @media (min-width : @screen-sm-min) {
+        background: url("../images/hp_cremik-sane.png?v=1") no-repeat left center;
+        content: "";
+        z-index :1;
+
+        position: absolute;
+        .top(360px);
+        .right( -1385px);
+        .width(image-width("../images/hp_cremik-sane.png"));
+        .height(image-height("../images/hp_cremik-sane.png"));
+      }
+      @media (min-width : @screen-sm-min) and (max-width : @screen-sm-max) {
+        background-size: 60%;
+        .top(270px);
+        .right( -1315px);
+      }
+      @media (min-width : @screen-md-min) and (max-width : @screen-md-max) {
+        background-size: 60%;
+        .top(270px);
+        .right( -1315px);
+      }
+
+    }
+
+
+    &:after {
+      @media (min-width : @screen-sm-min) {
+        background: url("../images/hp_cremik-one.png") no-repeat left center;
+        content: "";
+        z-index :2;
+
+        position: absolute;
+        top: 0;
+        .right( -601px);
+        .width(image-width("../images/hp_cremik-one.png"));
+        .height(image-height("../images/hp_cremik-one.png"));
+      }
+      @media (min-width : @screen-sm-min) and (max-width : @screen-sm-max) {
+        background-size: 60%;
+      }
+      @media (min-width : @screen-md-min) and (max-width : @screen-md-max) {
+        background-size: 60%;
+      }
+    }
+
+
+    @keyframes blurCreme {
+
+      0% {
+        transform: translateX(0) rotate(0deg);
+        filter: blur(0);
+        opacity: 1;
+      }
+      100% {
+        transform: translateX(-1000px) rotate(-720deg);
+        filter: blur(50px);
+        opacity: 0;
+      }
+
+
+
+      //from {
+      //  transform: rotate(0deg);
+      //}
+      //to {
+      //  filter: blur(15px);
+      //  transform: scale(1.8);
+      //  transition: all 0.25s ease-out;
+      //}
+
+    }
+
+    &.active {
+      &:after {
+
+        //animation: blurCreme 0.65s cubic-bezier(0.755, 0.050, 0.855, 0.060) both;
+        animation: bounce-out-top 1.5s both;
+
+
+        //animation-name: blurCreme;
+        //animation-delay: 500ms;
+        //animation-duration: 1s;
+        //animation-fill-mode: both;
+
+
+      }
+
+
+    }
+
+  }
+
+
+  .part-footer {
+    .margin-bottom(50px);
+  }
+
+}
+
+
+.doit {
+  padding-right: image-width("../images/arrow_up.png") * 1.5;
+  position: relative;
+  display: inline-block;
+
+  @media (max-width : @screen-ms-max) {
+    .padding-right( image-width("../images/arrow_up-xs.png") * 1.5);
+  }
+
+
+  &::before {
+    content: "";
+    background-image: url("../images/arrow_up.png");
+    .width(image-width("../images/arrow_up.png"));
+    .height(image-height("../images/arrow_up.png"));
+    position : absolute;
+    right: 0;
+    .bottom(28px);
+
+    @media (max-width : @screen-ms-max) {
+      background-image: url("../images/arrow_up-xs.png");
+      background-size: 100% 100%;
+      .max-width(image-width("../images/arrow_up-xs.png"));
+      .max-height(image-height("../images/arrow_up-xs.png"));
+      width: 100%;
+      height: 100%;
+      .bottom(28px);
+    }
+  }
+
+}
+
+.citate {
+  font-family: NiveaBook, sans-serif;
+  font-size: 15px;
+  color: #333;
+
+  .citate-top {
+    @media (max-width : @screen-ms-max) {
+      margin-bottom: 3em;
+    }
+  }
+
+  .citate-bottom {
+    margin-bottom: 3em;
+    @media (min-width : @screen-sm-min) {
+      margin-top: 2em;
+    }
+  }
+
+  .first,
+  big {
+    font-family: NiveaCreme, fantasy;
+    .font-size(70px);
+    line-height: 32/70;
+    color: #3151a0;
+
+    @media (max-width: @screen-xs-max) {
+      font-size: unit(70 / (@screen-xs-max / 100 ), vw);
+      line-height: 37/70;
+    }
+
+  }
+
+
+
+}

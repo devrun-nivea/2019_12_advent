@@ -1,0 +1,161 @@
+@import 'fonts';
+@import "nprogress";
+@import "variables";
+@import "../bootstrap/variables";
+@import "mixins/calc";
+@import "mixins/rem";
+
+/*
+html {
+  font-size: 62.5%;
+  @media (max-width : 320px) {
+    font-size: 57.5%;
+  }
+  @media (max-width : 280px) {
+    font-size: 50.0%;
+  }
+}
+*/
+
+
+/*
+body {
+  background: #f8f9fd;
+  font-family: NiveaBook,Arial,sans-serif;
+  font-size: 12px;
+  margin: 0;
+
+  //@import 'development';
+}
+*/
+
+
+html {
+  font-size: 100%;
+  @media (max-width : 320px) {
+    font-size: 57.5%;
+  }
+  @media (max-width : 280px) {
+    font-size: 50.0%;
+  }
+}
+
+body:not(.edit) {
+  background: #f8f9fd;
+  font-family: NiveaBook,Arial,sans-serif;
+  //font-size: 12px;
+  margin: 0;
+
+  @import 'development';
+}
+
+
+.main-wrapper {
+  font-family : @font-family-base;
+  .font-size(13px);
+  line-height : 1.42857143;
+  color       : #333333;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+
+  //background: url("../images/background-empty.jpg") no-repeat center top;
+  //background  : url("../images/background-norepeat.jpg") no-repeat top center;
+  //.background-size(image-width("background-norepeat.jpg"), image-height("background-norepeat.jpg"));
+
+
+  @import (less) '../bootstrap/bootstrap.less';
+
+  @import 'typo';
+  @import 'animation';
+  @import 'helpers';
+  @import 'buttons';
+  @import 'nivea-forms';
+  @import 'custom-radio';
+  @import 'custom-checkbox';
+  @import 'row';
+  @import 'footer';
+  @import 'homepage';
+  @import 'calendar';
+  @import 'thanks';
+
+  // oddělíme do main-wrapperu pouze buttony, slick.less musí být mimo kvůli javascriptu
+  @import 'slick-theme';
+  @import 'slider';
+
+  canvas#canvas {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    z-index: 3;
+  }
+
+  main {
+    z-index: inherit;
+  }
+
+  a {
+    position: relative;
+    z-index: 10;
+  }
+
+  #play-frame {
+    padding-top: 2.6rem;
+    @media (max-width : @screen-md-max) {
+    }
+  }
+
+  &.ajax-fade {
+    opacity: 0;
+    transition: opacity 1000ms linear;
+    &.in {
+      opacity: 1;
+    }
+  }
+
+
+  #preloaded-images {
+    position: absolute;
+    overflow: hidden;
+    left: -9999px;
+    top: -9999px;
+    height: 1px;
+    width: 1px;
+  }
+
+  &.cs {
+    @import 'thanks-cs';
+  }
+
+  &.sk {
+    @import 'homepage-sk';
+    @import 'calendar-sk';
+    @import 'thanks-sk';
+  }
+
+  &.hu {
+    @import 'calendar-hu';
+    @import 'thanks-hu';
+  }
+
+}
+
+/* support flex-box */
+.flexbox {
+  .main-wrapper {
+
+  }
+
+}
+
+@import 'slick';
+
+
+
+@import 'bs-tooltip';
+@import "fixess";

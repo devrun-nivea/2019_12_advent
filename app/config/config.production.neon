@@ -1,0 +1,32 @@
+parameters:
+	database:
+		driver: pdo_sqlite
+		path: %dataDir%/advent.sqlite
+
+cms:
+	options:
+		autoSyncPages: false
+
+	administration:
+		login:
+			name: admin
+			password: "123123"
+
+	website:
+		defaultDomain:
+		defaultLanguage: %lang%
+		languages: %languages%
+		name: Advent-2019
+		title: %n %s %t
+		titleSeparator: |
+		keywords: souteze
+		description: "Soutěže pro zábavu."
+		author: Pavel
+		routePrefix: ""
+		oneWayRoutePrefix: ""
+		theme: null
+		cacheMode: static
+		cacheValue: "1"
+
+doctrine:
+	supportsForeignKeyConstraints: true

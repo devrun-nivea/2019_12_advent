@@ -1,0 +1,5 @@
+*/*
+/_storage_no_image/8f/no_image.*.png
+!.gitignore
+!_storage_no_image/*
+!_storage_no_image/8f/no_image.png

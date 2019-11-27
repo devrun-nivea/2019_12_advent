@@ -1,0 +1,170 @@
+&.hu {
+  .decorate-form {
+    .checkbox-table {
+    }
+  }
+}
+
+
+.registration {
+  p.about {
+    font-family: @font-family-nivea-light;
+    .font-size(13px);
+    font-weight: bold;
+    text-transform: uppercase;
+    .margin-bottom(4px);
+    line-height: 1.62857143;
+  }
+
+  .part-title {
+    margin-bottom: 1em;
+  }
+
+  .part-content {
+    .margin-left(60px);
+    .margin-right(60px);
+    @media (max-width : @screen-ms-max) {
+      .margin-left(20px);
+      .margin-right(20px);
+    }
+
+  }
+
+}
+
+
+.decorate-form {
+  .padding-top(16px);
+  .padding-bottom(16px);
+
+  @media (min-width : @screen-lg-min) {
+    //.padding-left(60px);
+  }
+
+
+
+  //.font-size(13px);
+
+  h2 {
+    @media (max-width : @screen-xs-max) {
+      font-size : 4vw;
+    }
+  }
+
+  .required:not(.checkbox-table) {
+    label {
+      &:after {
+        content : " *";
+      }
+    }
+
+
+    .birth-select {
+      label {
+        &:after {
+          content : none;
+        }
+      }
+      label.birthday {
+        &:after {
+          content : " *";
+        }
+      }
+    }
+
+
+    .checkbox {
+      label {
+        &:after {
+          content : none;
+        }
+      }
+    }
+
+  }
+
+  .required.checkbox-table {
+    label span {
+      &:after {
+        content : " *";
+      }
+
+    }
+  }
+
+  .checkbox-table {
+    &.form-group {
+      margin-bottom: 5px;
+    }
+  }
+
+
+  label.required {
+    &:after {
+      content : "*";
+    }
+  }
+
+  input[type=radio] {
+    position : absolute;
+    z-index  : -1000;
+    left     : -1000px;
+    overflow : hidden;
+    clip     : rect(0 0 0 0);
+    .height(1px);
+    .width(1px);
+    .margin(-1px);
+    padding  : 0;
+    border   : 0;
+  }
+
+  input[type=radio] + label {
+    display             : inline-block;
+    .padding-left(37px);
+    .height(22px);
+    .line-height (22px);
+    background-repeat   : no-repeat;
+    background-position : 0 0;
+    vertical-align      : middle;
+    cursor              : pointer;
+  }
+
+  input[type=radio]:checked + label {
+    background-position : 0 -22px;
+  }
+  .checkbox label {
+    background-image : url('../images/radiobutton.png');
+    user-select      : none;
+  }
+
+  .birth-select {
+    > .col-4:first-child {
+      .min-width (130px);
+    }
+
+  }
+
+}
+
+.winner-box {
+  .padding-left(20px);
+  .padding-right(20px);
+  .padding-top(30px);
+  .padding-bottom(120px);
+
+  @media (max-width : @screen-ms-max) {
+    display : none !important;
+  }
+
+  .winner {
+    .margin-top(15px);
+  }
+
+  .citate {
+    .margin-top(80px);
+    @media (max-width : @screen-xs-max) {
+      .font-size(70px);
+    }
+  }
+
+}

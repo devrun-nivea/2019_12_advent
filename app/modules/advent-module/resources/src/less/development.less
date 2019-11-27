@@ -1,0 +1,43 @@
+&.debug .main-wrapper {
+  .min-height(1100px);
+  position: relative;
+
+  &.homepage::before,
+  &.calendar::before,
+  &.thankyou::before {
+    content  : "";
+    opacity  : 0.25;
+    top      : 0;
+    left     : 0;
+    right    : 0;
+    bottom   : 0;
+    position : absolute;
+    background-repeat: no-repeat;
+    background-position: center top;
+  }
+
+
+  &.homepage::before {
+    //background-image : url("../images/devel/debug1.png");
+    //height: 2240px;
+  }
+
+  &.calendar::before {
+    //background-image: url( "../images/devel/debug3.png");
+    //height: 2240px;
+  }
+
+  &.thankyou::before {
+    //background-image : url("../images/devel/debug4.png");
+    @media (max-width : @screen-ms-max) {
+      //background-image : url("../images/devel/debug4-xs.png");
+      background-position-y: 38px;
+    }
+
+
+    //height: 2240px;
+  }
+
+
+}
+
