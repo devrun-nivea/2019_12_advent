@@ -33,6 +33,7 @@ class BaseAppPresenter extends BaseContestPresenter
     /** @var array */
     public $onLoggedIn = [];
 
+    protected $cacheImgs = [];
 
     /**
      * DI setter
@@ -185,6 +186,7 @@ class BaseAppPresenter extends BaseContestPresenter
         $template->addFilter('proxyLink', array($this->commonFilter, 'proxyLink'));
 
         $template->isActive  = (date("j") <= 24) || $this->isDebug();
+        $template->cacheImgs = $this->cacheImgs;
 
         $this->template->title = null;
         if ($routeId = $this->getRequest()->getParameter('routeId')) {

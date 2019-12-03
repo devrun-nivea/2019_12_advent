@@ -3,12 +3,15 @@
 
   @media (min-width : @screen-lg-min) {
     &.active {
-      .min-height(1600px);
+      .min-height(1500px);
       .padding-bottom(300px);
     }
   }
   @media (min-width : @screen-sm-min) {
     background: #E7F5FD url("../images/calendar_bg-no-snow.jpg") no-repeat center top;
+    &.active {
+      background-size: cover;
+    }
   }
 
   #form {

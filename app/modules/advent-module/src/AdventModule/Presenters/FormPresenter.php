@@ -55,7 +55,7 @@ class FormPresenter extends BaseAppPresenter
         $this->template->today    = $this->getToday();
         $this->template->debug    = $this->isDebug();
         $this->template->days     = $this->getDays();
-        $this->template->question = $this->getQuestionEntity();
+//        $this->template->question = $this->getQuestionEntity();
     }
 
 
@@ -148,14 +148,16 @@ class FormPresenter extends BaseAppPresenter
             ->addNewsletter()
             ->setFlush(false);
 
-        /** @var AnswersEntity[] $answerEntities */
-        $answerEntities = $this->calendarAnswerRepository->findBy(['question' => $questionEntity = $this->getQuestionEntity()]);
+//        $questionEntity = $this->getQuestionEntity();
 
-        $items = [];
+//        /** @var AnswersEntity[] $answerEntities */
+//        $answerEntities = $this->calendarAnswerRepository->findBy(['question' => $questionEntity = $this->getQuestionEntity()]);
 
-        foreach ($answerEntities as $answerEntity) {
-            $items[$answerEntity->getId()] = $answerEntity->getText();
-        }
+//        $items = [];
+//
+//        foreach ($answerEntities as $answerEntity) {
+//            $items[$answerEntity->getId()] = $answerEntity->getText();
+//        }
 
         $form->addHidden('_q');
 
@@ -166,36 +168,24 @@ class FormPresenter extends BaseAppPresenter
             ->addRule(Form::FILLED, 'vyplňte_odpověď');
 
 
-//        $form->addRadioList('answer', "odpověď", $items)
-//             ->setTranslator(null)
-//             ->setOption(IComponentMapper::ITEMS_TITLE, 'text')
-//             ->addRule(Form::FILLED, 'vyplňte_odpověď');
-//        ;
+//        /** @var PackageEntity $packageEntity */
+//        $packageEntity = $this->packageRepository->find($this->getPackage());
+//
+//        $form->callReloadEntity = function ($userEntity, $resultEntity) use ($form, $packageEntity, $questionEntity) {
+//
+//            if (!$resultEntity = $this->resultRepository->findOneBy(['createdBy' => $userEntity, 'package' => $packageEntity, 'question' => $questionEntity ])) {
+//                $resultEntity = new ResultEntity($userEntity, $packageEntity, $questionEntity);
+//            }
+//
+//            return $resultEntity;
+//        };
+//
+//
+//        if (!$resultEntity = $this->resultRepository->findOneBy(['createdBy' => $this->userEntity, 'package' => $packageEntity, 'question' => $questionEntity ])) {
+//            $resultEntity = new ResultEntity($this->userEntity, $packageEntity, $questionEntity);
+//        }
 
-
-        /** @var PackageEntity $packageEntity */
-        $packageEntity = $this->packageRepository->find($this->getPackage());
-
-        $form->callReloadEntity = function ($userEntity, $resultEntity) use ($form, $packageEntity, $questionEntity) {
-
-            if (!$resultEntity = $this->resultRepository->findOneBy(['createdBy' => $userEntity, 'package' => $packageEntity, 'question' => $questionEntity ])) {
-                $resultEntity = new ResultEntity($userEntity, $packageEntity, $questionEntity);
-            }
-
-            // $form->bindEntity($resultEntity);
-            // $form->fireEvents();
-
-            return $resultEntity;
-        };
-
-
-        if (!$resultEntity = $this->resultRepository->findOneBy(['createdBy' => $this->userEntity, 'package' => $packageEntity, 'question' => $questionEntity ])) {
-            $resultEntity = new ResultEntity($this->userEntity, $packageEntity, $questionEntity);
-        }
-
-//        dump($resultEntity);
-
-        $form->bindEntity($resultEntity);
+//        $form->bindEntity($resultEntity);
         $form->setDefaults([
             '_q' => $this->getToday(),
             'originalEmail'   => $this->userEntity->getEmail(),

@@ -24,7 +24,7 @@
 	{*{control jsEnvironmentControl}*}
 	<script type="application/javascript">var dataLayer = dataLayer || []; // Google Tag Manager</script>
 	{if $production}
-		<link data-pf-placeholder="head" rel="stylesheet" type="text/css" media="screen" href="{$basePath}/resources/adventModule/css/main-advent.min.css?rel=1574855177275">
+		<link data-pf-placeholder="head" rel="stylesheet" type="text/css" media="screen" href="{$basePath}/resources/adventModule/css/main-advent.min.css?rel=1575041967653">
 		{*{include "#gtm-head.latte"}*}
 	{else}
 		{*<!-- build:css {$basePath}/resources/adventModule/css/main-advent.min.css -->*}
@@ -54,6 +54,10 @@
 			</main>
 			<div id="preloaded-images">
 				<img src="{$basePath}/resources/adventModule/images/kolo.png" alt="">
+				<img src="{$basePath}/resources/adventModule/images/calendar_bg-no-snow.jpg" alt="">
+				{foreach $cacheImgs as $cacheImg}
+					<img src="{$basePath}/media/{$cacheImg->identifier}" alt="">
+				{/foreach}
 			</div>
 		</div>
 	</div>
@@ -68,7 +72,7 @@
 
 		{if $production}
 			{*<script type="application/javascript" src="{$basePath}/assets/bootstrap/js/bootstrap.js"></script>*}
-			<script type="application/javascript" data-pf-placeholder="scripts" src="{$proxyUrl}{$basePath}/resources/adventModule/js/advent.min.js?rel=1574855177275"></script>
+			<script type="application/javascript" data-pf-placeholder="scripts" src="{$proxyUrl}{$basePath}/resources/adventModule/js/advent.min.js?rel=1575041967652"></script>
 			<script type="application/javascript" src="{$basePath}/resources/adventModule/assets/nette-progress/nette.nprogress.js"></script>
 			<script type="application/javascript" src="{$basePath}/resources/adventModule/assets/nette-progress/nprogress.js"></script>
 		{else}

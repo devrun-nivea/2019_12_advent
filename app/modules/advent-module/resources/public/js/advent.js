@@ -144,6 +144,7 @@
             checkToday = function () {
                 var n = new Date().getDate();
 
+                // n= 2;
                 //if (n > 24) n = 24;
                 //n = Math.floor(Math.random() * 24) + 1;
 
@@ -157,22 +158,21 @@
                             console.log("selected " + selectDay + " dnes je " + n);
                             $('.calendar-content').find('.active').removeClass('active').parent().find('.day-'+n).addClass('active');
 
-                            var proxyBaseUrl = $(Application.selectorApp).data('pf-proxy-base-url');
-                            var appBaseUrl = $(Application.selectorApp).data('appBaseUrl');
-
-                            var baseUrl = proxyBaseUrl ? proxyBaseUrl + '/' : appBaseUrl;
+                            // var proxyBaseUrl = $(Application.selectorApp).data('pf-proxy-base-url');
+                            // var appBaseUrl = $(Application.selectorApp).data('appBaseUrl');
+                            // var baseUrl = proxyBaseUrl ? proxyBaseUrl + '/' : appBaseUrl;
 
                             // redirect to default page
-                            var formUrl = baseUrl + "form/";
+                            // var formUrl = baseUrl + "formular/";
 
-                            console.log(formUrl);
-                            window.location.href = formUrl;
+                            // console.log(formUrl);
+                            // window.location.href = formUrl;
+                            window.location.href = window.location.href;
                         }
 
                     } else {
                         n= 1;
                         $('.calendar-content').find('.day-'+n).addClass('active');
-
                     }
 
                 } else {
